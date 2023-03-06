@@ -29,6 +29,9 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
           <Text style={styles.link}>Go to Sponsor Screen</Text>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+          <Text style={styles.link}>Go to Contact Screen</Text>
+        </TouchableOpacity>
       </View>
     </LinearGradient>
   );
@@ -43,7 +46,7 @@ const SceneScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Contact />
+        
       </View>
 
 
@@ -96,8 +99,24 @@ const SponsorScreen = () => {
   );
 };
 
+const ConatctScreen = () => {
+  return (
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+      <Contact />
+      </View>
+    </LinearGradient>
+  );
+};
+
 const StackMenuRouter = () => {
   return (
+  
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
@@ -105,8 +124,11 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Location" component={LocationScreen} />
         <Stack.Screen name="Food" component={FoodScreen} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} />
+        <Stack.Screen name="Contact" component={ConatctScreen} />
       </Stack.Navigator>
+      
     </NavigationContainer>
+    
   );
 };
 
