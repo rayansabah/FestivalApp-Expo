@@ -1,64 +1,98 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity } from 'react-native'; 
-
-
-
-
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 import Contact from './pages/Contact';
-
 
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
-        <Text>Go to Scene Screen</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Location')}>
-        <Text>Go to Location Screen</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Food')}>
-        <Text>Go to Food Screen</Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
-        <Text>Go to Sponsor Screen</Text>
-      </TouchableOpacity>
-    </View>
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+        <Text style={styles.title}>Home Screen</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
+          <Text style={styles.link}>Go to Scene Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Location')}>
+          <Text style={styles.link}>Go to Location Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Food')}>
+          <Text style={styles.link}>Go to Food Screen</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
+          <Text style={styles.link}>Go to Sponsor Screen</Text>
+        </TouchableOpacity>
+      </View>
+    </LinearGradient>
   );
 };
 
 const SceneScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Contact/>
-    </View>
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Contact />
+      </View>
+
+
+    </LinearGradient>
   );
 };
 
 const LocationScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Location Screen</Text>
-    </View>
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>Location Screen</Text>
+      </View>
+    </LinearGradient>
   );
 };
 
 const FoodScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Food Screen</Text>
-    </View>
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>Food Screen</Text>
+      </View>
+    </LinearGradient>
   );
 };
 
 const SponsorScreen = () => {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Sponsor Screen</Text>
-    </View>
+    <LinearGradient
+      colors={['#a28877', '#e9424f']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.container}
+    >
+      <View style={styles.container}>
+        <Text style={styles.title}>Sponsor Screen</Text>
+      </View>
+    </LinearGradient>
   );
 };
 
@@ -75,5 +109,24 @@ const StackMenuRouter = () => {
     </NavigationContainer>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+    color: '#fff',
+  },
+  link: {
+    fontSize: 18,
+    color: '#fff',
+    marginBottom: 10,
+  },
+});
 
 export default StackMenuRouter;

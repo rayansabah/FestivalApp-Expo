@@ -1,17 +1,39 @@
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 
-import { View, Text, TouchableOpacity } from 'react-native'; 
-export default function Contact() {
-    return <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+const Contact = () => {
+  return (
+    <View style={styles.container}>
+      <View style={styles.square}>
+      <Text style={styles.header}>Contact Us</Text>
+      
+        <Text>Enter your contact information here.</Text>
+      </View>
+    </View>
+  );
+};
 
-            
-            
-            <Text>Kontakta oss </Text>
-    
-            <Text>ashfjasjfdkadkasjkd </Text>
-         
-    
-  </View>
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  header: {
+    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  square: {
+    margin: 10,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: 10,
+    borderRadius: 10,
+    backgroundColor: '#ffffff',
+    width: 300,
+  },
+});
 
-   
-
-}
+export default Contact;
