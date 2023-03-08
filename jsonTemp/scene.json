@@ -1,0 +1,63 @@
+{
+    "SceneInfo": [
+        {
+            "name": "Scener",
+            "info": [
+                "ajjkasasjkjasjkasjasjjkasjk"
+            ]
+        }
+    ],
+    "Scenes": [
+        {
+            "name": "Scen 1",
+            "performances": [
+                {
+                    "artist": "Aeho",
+                    "time": "13.00"
+                },
+                {
+                    "artist": "Fredd",
+                    "time": "14.00"
+                },
+                {
+                    "artist": "Gunna",
+                    "time": "15.00"
+                }
+            ]
+        },
+        {
+            "name": "Scen 2",
+            "performances": [
+                {
+                    "artist": "Bengt Göran",
+                    "time": "13.00"
+                },
+                {
+                    "artist": "Ulf Jörgendsson",
+                    "time": "14.00"
+                },
+                {
+                    "artist": "jj da",
+                    "time": "15.00"
+                }
+            ]
+        },
+        {
+            "name": "Scen 3",
+            "performances": [
+                {
+                    "artist": "Ölf",
+                    "time": "13.00"
+                },
+                {
+                    "artist": "Gand",
+                    "time": "14.00"
+                },
+                {
+                    "artist": "batman",
+                    "time": "15.00"
+                }
+            ]
+        }
+    ]
+}
