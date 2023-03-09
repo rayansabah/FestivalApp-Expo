@@ -5,6 +5,9 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Contact from './pages/Contact';
 import Sponsor from './pages/Sponsor';
+import Scene from './pages/Scene';
+import Food from './pages/Food';
+import Location from './pages/Location';
 
 const Stack = createStackNavigator();
 
@@ -47,7 +50,7 @@ const SceneScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        
+        <Scene/>
       </View>
 
 
@@ -64,7 +67,7 @@ const LocationScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Location Screen</Text>
+       <Location/>
       </View>
     </LinearGradient>
   );
@@ -79,7 +82,7 @@ const FoodScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Food Screen</Text>
+        <Food/>
       </View>
     </LinearGradient>
   );

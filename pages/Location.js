@@ -1,52 +1,55 @@
-import { MapContainer, Marker, Popup, TileLayer, useMap, Circle } from 'react-leaflet'
-import 'react-leaflet'
-import 'leaflet/dist/leaflet.css'
-import '../css/location.css'
-import Navbar from '../comp/NavBar'
-import Footer from '../comp/Footer'
+import { View, Text, StyleSheet } from 'react-native'
 
 const center = [58.07814215851804, 13.020617914330508]
 const radius = 200;
 
 export default function Location() {
+    const styles = StyleSheet.create({
+        mapSquare: {
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            borderRadius: 25,
+            backgroundColor: '#ffff',
+            padding: 10,
+            width: 300,
+            height: 250,
+            display: 'flex',
+        },
+        locationSquare: {
+            margin: 10,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            display: 'flex',
+            padding: 9,
+            borderRadius: 10,
+            backgroundColor: '#ffffff',
+            width: 300,
+        },
+        header: {
+            textAlign: 'center',
+            fontSize: 24,
+            fontWeight: 'bold',
+            marginBottom: 20,
+        }
+    });
 
-    return <div>
-        <Navbar />
-        <div className='location-square'>
-            <h1 className='location-header'>Område</h1>
 
-            <p>info om fliken</p>
-        </div>
-        <div className='map-square'>
-            <MapContainer style={{ height: '90%', width: '100%' }}
-                center={center}
-                zoom={13}
-                attributionControl={false}
-                zoomControl={false}>
+    return <View>
+        <View style={styles.locationSquare}>
+            <Text style={styles.header}>Område</Text>
+            <Text>info om fliken</Text>
+        </View>
+        <View style={styles.mapSquare}>
+            <Text>Karta Här</Text>
+        </View>
 
-            {/* Circle */}
-                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                <Circle center={center} radius={radius} fillColor="red" />
-
-                <TileLayer
-                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-                <Marker position={center}>
-                    <Popup>
-                        A pretty CSS3 popu1p. <br /> Easily customizable.
-                    </Popup>
-                </Marker>
-            </MapContainer>
-
-
-        </div>
-        <div className='location-square'>
+        <View style={styles.locationSquare}>
             
 
-            <p>info om områderna</p>
-        </div>
-        <Footer/>
-    </div>
+            <Text>info om områderna</Text>
+        </View>
+
+
+    </View>
 
 }
