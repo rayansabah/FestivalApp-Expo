@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import Contact from './pages/Contact';
+import Sponsor from './pages/Sponsor';
 
 const Stack = createStackNavigator();
 
@@ -93,7 +94,7 @@ const SponsorScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Text style={styles.title}>Sponsor Screen</Text>
+        <Sponsor />
       </View>
     </LinearGradient>
   );
