@@ -1,15 +1,17 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 const Contact = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.square}>
-      <Text style={styles.header}>Contact Us</Text>
-      
-        <Text>Enter your contact information here.</Text>
+    <ScrollView showsVerticalScrollIndicator={false}>
+      <View style={styles.container}>
+        <View style={styles.square}>
+          <Text style={styles.header}>Contact Us</Text>
+
+          <Text>Enter your contact information here.</Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

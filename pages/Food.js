@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 import food from '../jsonTemp/food.json';
 
 const Food = () => {
   return (
+    <ScrollView showsVerticalScrollIndicator={false}>
     <View style={styles.container}>
 
       <View>
@@ -19,6 +20,7 @@ const Food = () => {
           </View>
         ))}
       </View>
+     
 
       {food.FoodMenu.map((Food, index) => (
         <View key={index}>
@@ -42,6 +44,7 @@ const Food = () => {
       ))}
 
     </View>
+    </ScrollView>
   );
 };
 

@@ -1,10 +1,11 @@
 
 import SponsorData  from '../jsonTemp/sponsorsInfo.json'
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 
 function Sponsor() {
 
     return (
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
         <View style={styles.square}>
           <Text style={styles.header}>Sponsorer</Text>
@@ -18,6 +19,7 @@ function Sponsor() {
           ))}
         </View>
       </View>
+      </ScrollView>
     )
 
 }

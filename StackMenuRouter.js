@@ -9,6 +9,9 @@ import Scene from './pages/Scene';
 import Food from './pages/Food';
 import Location from './pages/Location';
 
+import SvgComponent from "./assets/svgComp/LogoSvg.js";
+
+
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
@@ -19,8 +22,8 @@ const HomeScreen = ({ navigation }) => {
       end={{ x: 1, y: 1 }}
       style={styles.container}
     >
+      <SvgComponent />
       <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-        <Text style={styles.title}>Home Screen</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
           <Text style={styles.link}>Go to Scene Screen</Text>
         </TouchableOpacity>
@@ -123,7 +126,7 @@ const StackMenuRouter = () => {
   
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
         <Stack.Screen name="Scene" component={SceneScreen} />
         <Stack.Screen name="Location" component={LocationScreen} />
         <Stack.Screen name="Food" component={FoodScreen} />

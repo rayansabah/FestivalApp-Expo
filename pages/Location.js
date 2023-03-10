@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react';
 import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
 
@@ -50,14 +50,29 @@ export default function Location() {
         { latitude: coordinate.latitude + 0.0003, longitude: coordinate.longitude + 0.00025 },
     ];
 
-    const polygon2 = [
-        { latitude: 58.077426167451835, longitude: 13.019473245042012 },
-        { latitude: 58.077426167451866, longitude: 13.020473245042912 },
-        { latitude: 58.076426167451866, longitude: 13.020473245042912 },
-        { latitude: 58.076426167451866, longitude: 13.019473245042912 },
+    const polygonStadsparken = [
+        { latitude: 58.077333351169536, longitude: 13.02099001319721 },
+        { latitude: 58.07723733716411, longitude: 13.01978686957709 },
+        { latitude: 58.077120513358736, longitude: 13.0190153860882 },
+        { latitude: 58.07681417095906, longitude: 13.019014088881251 },
+        { latitude: 58.07644897636327, longitude: 13.01909812648185 },
+        { latitude: 58.076353446377475, longitude: 13.019995146930551 },
+        { latitude: 58.07626175773855, longitude: 13.020906869929897 },
+        { latitude: 58.07677078510145, longitude: 13.02175065275932 },
+    ];
+    const polygonTradgardsgatan = [
+        { latitude: 58.077231889602785, longitude: 13.026115929829064 },
+        { latitude: 58.07726895093108, longitude: 13.02479558221703 },
+        { latitude: 58.07737953920083, longitude: 13.022212079135539 },
+        { latitude: 58.077356901831855, longitude: 13.022208258300067 },
+        { latitude: 58.07725051321702, longitude: 13.0247935705603 },
+        { latitude: 58.07721018846615, longitude: 13.02611283622232 },
+     
+         
     ];
 
     return (
+        <ScrollView showsVerticalScrollIndicator={false}>
         <View>
             <View style={styles.locationSquare}>
                 <Text style={styles.header}>Område</Text>
@@ -79,21 +94,17 @@ export default function Location() {
                         strokeWidth={2}
                     />
                     <Polygon
-                        coordinates={[
-                            { latitude: 58.077333351169536, longitude: 13.02099001319721 },
-                            { latitude: 58.07723733716411, longitude: 13.01978686957709 },
-                            { latitude: 58.077120513358736, longitude: 13.0190153860882 },
-                            
-                            { latitude: 58.07681417095906, longitude: 13.019014088881251 },
-                            { latitude: 58.07644897636327, longitude: 13.01909812648185 },
-                            { latitude: 58.076353446377475, longitude: 13.019995146930551 },
-                            { latitude: 58.07626175773855, longitude: 13.020906869929897 },
-                            { latitude: 58.07677078510145, longitude: 13.02175065275932 },
-                           
-                        ]}
+                        coordinates={polygonStadsparken}
                         fillColor={'rgba(200, 200, 200, 0.3)'}
                         strokeColor={'rgba(255, 45, 0, 0.5)'}
                         strokeWidth={5}
+                    />
+                    <Polygon
+                        coordinates={polygonTradgardsgatan}
+                        fillColor={'rgba(200, 200, 200, 0.3)'}
+                        strokeColor={'rgba(255, 45, 0, 0.5)'}
+                        strokeWidth={1
+                        }
                     />
                 </MapView>
             </View>
@@ -103,5 +114,6 @@ export default function Location() {
                 <Text>info om områderna</Text>
             </View>
         </View>
+        </ScrollView>
     )
 }
