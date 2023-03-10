@@ -1,20 +1,32 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Linking } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import AppLoading from 'expo-app-loading';
+import { useFonts } from 'expo-font';
+
+
+
 import Contact from './pages/Contact';
 import Sponsor from './pages/Sponsor';
 import Scene from './pages/Scene';
 import Food from './pages/Food';
 import Location from './pages/Location';
-
 import SvgComponent from "./assets/svgComp/LogoSvg.js";
 
 
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
+  let [fontsLoaded] = useFonts({
+    'MontserratBold': require('./assets/font/Montserrat-SemiBold.ttf')
+
+  })
+
+  if (!fontsLoaded) {
+    return <AppLoading />
+  }
   return (
     <LinearGradient
       colors={['#a28877', '#e9424f']}
@@ -22,24 +34,31 @@ const HomeScreen = ({ navigation }) => {
       end={{ x: 1, y: 1 }}
       style={styles.container}
     >
+
       <SvgComponent />
-      <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+
+      <View style={{ alignItems: 'center' }}>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
-          <Text style={styles.link}>Go to Scene Screen</Text>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 5 }]}>Scener</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Location')}>
-          <Text style={styles.link}>Go to Location Screen</Text>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Område</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Food')}>
-          <Text style={styles.link}>Go to Food Screen</Text>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Mat</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
-          <Text style={styles.link}>Go to Sponsor Screen</Text>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Sponsorer</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
-          <Text style={styles.link}>Go to Contact Screen</Text>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta oss</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>#välkommenhit</Text>
         </TouchableOpacity>
       </View>
+
+
     </LinearGradient>
   );
 };
@@ -53,7 +72,7 @@ const SceneScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Scene/>
+        <Scene />
       </View>
 
 
@@ -70,7 +89,7 @@ const LocationScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-       <Location/>
+        <Location />
       </View>
     </LinearGradient>
   );
@@ -85,7 +104,7 @@ const FoodScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-        <Food/>
+        <Food />
       </View>
     </LinearGradient>
   );
@@ -115,7 +134,7 @@ const ConatctScreen = () => {
       style={styles.container}
     >
       <View style={styles.container}>
-      <Contact />
+        <Contact />
       </View>
     </LinearGradient>
   );
@@ -123,19 +142,22 @@ const ConatctScreen = () => {
 
 const StackMenuRouter = () => {
   return (
-  
+
     <NavigationContainer>
+
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} options={{headerShown: false}} />
-        <Stack.Screen name="Scene" component={SceneScreen} />
-        <Stack.Screen name="Location" component={LocationScreen} />
-        <Stack.Screen name="Food" component={FoodScreen} />
-        <Stack.Screen name="Sponsor" component={SponsorScreen} />
-        <Stack.Screen name="Contact" component={ConatctScreen} />
+
+        <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Scene" component={SceneScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Location" component={LocationScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
-      
+
     </NavigationContainer>
-    
+
+
   );
 };
 
@@ -152,9 +174,10 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   link: {
-    fontSize: 18,
+    fontSize: 30,
     color: '#fff',
     marginBottom: 10,
+
   },
 });
 

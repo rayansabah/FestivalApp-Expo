@@ -1,7 +1,7 @@
 import React from "react";
 import { SvgXml } from "react-native-svg";  
 export default function SvgComponent(){  
-  const svgMarkup = `<svg width="50" height="50" viewBox="0 0 816 1013" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const svgMarkup = `<svg  viewBox="0 0 816 1013" fill="none" xmlns="http://www.w3.org/2000/svg">
     
   <path d="M231.716 472.38C231.716 454.218 215.897 433.497 202.619 417.286C189.283 433.558 173.464 454.218 173.464 472.38C173.464 489.261 187.146 508.398 199.732 524V779.541C199.732 781.187 201.002 782.527 202.561 782.527C204.12 782.527 205.39 781.187 205.39 779.541V524C217.976 508.337 231.659 489.261 231.659 472.38" fill="white"/>
   <path d="M121.426 498.87C122.87 520.323 125.583 546.712 137.765 559.571C149.946 572.431 175.003 575.234 195.267 576.819C193.824 555.366 191.11 528.977 178.928 516.118C166.747 503.258 141.691 500.455 121.426 498.87Z" fill="white"/>
@@ -29,7 +29,7 @@ export default function SvgComponent(){
   
   </svg>
   `;
-  const SvgImage = () => <SvgXml xml={svgMarkup} width="25%" height="25%" />;  
+  const SvgImage = () => <SvgXml xml={svgMarkup} width="50%" height="50%" />;  
 
   return <SvgImage />;
 }

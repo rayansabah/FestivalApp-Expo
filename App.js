@@ -2,11 +2,13 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import StackMenuRouter from './StackMenuRouter';
 
+
 const App = () => {
   return (
     <View style={styles.container}>
       <View style={styles.gradient} />
       <StackMenuRouter />
+      
     </View>
   );
 };

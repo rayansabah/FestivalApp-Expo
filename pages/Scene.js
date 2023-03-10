@@ -4,6 +4,8 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import data from '../jsonTemp/scene.json';
 
+import CustomHeader from '../component/CustomHeader';
+
 
 
 const scen1 = data.Scenes.find((scene) => scene.name === 'Scen 1');
@@ -71,7 +73,10 @@ export default function Scene() {
 
   /// Favorit funktion slut
 
-  return (
+  return (<>
+    <View>
+        <CustomHeader title="Home" />
+      </View>
     <ScrollView showsVerticalScrollIndicator={false}>
      
       <View style={styles.container}>
@@ -97,7 +102,6 @@ export default function Scene() {
             </View>
           ))}
         </View>
-
 
         <View style={styles.square}>
           <Text>Favoriter:</Text>
@@ -177,5 +181,6 @@ export default function Scene() {
 
       </View>
     </ScrollView>
+              </>
   )
 }
