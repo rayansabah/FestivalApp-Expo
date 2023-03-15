@@ -3,13 +3,13 @@
         {
             "name": "Scener",
             "info": [
-                "ajjkasasjkjasjkasjasjjkasjk"
+                "Här ger vi dig en överblick över alla scener som finns på festivalen"
             ]
         }
     ],
     "Scenes": [
         {
-            "name": "Scen 1",
+            "name": "Torget",
             "performances": [
                 {
                     "artist": "Aeho",
@@ -26,7 +26,7 @@
             ]
         },
         {
-            "name": "Scen 2",
+            "name": "Stadsparken",
             "performances": [
                 {
                     "artist": "Bengt Göran",
@@ -43,7 +43,7 @@
             ]
         },
         {
-            "name": "Scen 3",
+            "name": "Stora Scenen",
             "performances": [
                 {
                     "artist": "Ölf",
