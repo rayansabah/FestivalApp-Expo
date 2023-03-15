@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import ImgPopup from '../component/ImgPopup';
 
 import data from '../jsonTemp/scene.json';
 
@@ -8,9 +9,9 @@ import CustomHeader from '../component/CustomHeader';
 
 
 
-const scen1 = data.Scenes.find((scene) => scene.name === 'Scen 1');
-const scen2 = data.Scenes.find((scene) => scene.name === 'Scen 2');
-const scen3 = data.Scenes.find((scene) => scene.name === 'Scen 3');
+const scen1 = data.Scenes.find((scene) => scene.name === 'Torget');
+const scen2 = data.Scenes.find((scene) => scene.name === 'Stadsparken');
+const scen3 = data.Scenes.find((scene) => scene.name === 'Stora Scenen');
 
 export default function Scene() {
 
@@ -19,6 +20,11 @@ export default function Scene() {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
+    },
+    container1: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
     },
     header: {
       textAlign: 'center',
@@ -125,9 +131,12 @@ export default function Scene() {
 
 
         <View style={styles.square}>
-          <View className="scene-flex">
-            <Text style={styles.sceneHeader}>{scen1.name}</Text>
-
+          <View style={styles.container1}>
+              <Text style={styles.sceneHeader}>{scen1.name}
+            <View>
+              <ImgPopup src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJGrby2IngYbvnblxD_d78O-TFa7Q71Ei1owPAJ_dHhtkBeNtbga6VAtNaQoK8O5b0zfY&usqp=CAU" />
+            </View>
+              </Text>
           </View>
 
 
@@ -158,9 +167,9 @@ export default function Scene() {
                 {performance.artist} - {performance.time}
 
                 <View className='favorite-icon-container'>
-                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                    <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
+                  </TouchableOpacity>
                 </View>
               </Text>
             </View>
@@ -181,15 +190,14 @@ export default function Scene() {
 
                 {performance.artist} - {performance.time}
                 <View className='favorite-icon-container'>
-                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
-                </TouchableOpacity>
+                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                    <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
+                  </TouchableOpacity>
                 </View>
               </Text>
             </View>
           ))}
         </View>
-
       </View>
     </ScrollView>
   </>
