@@ -56,7 +56,18 @@ export default function Scene() {
 
   const addFavorite = async (artist, time) => {
     const newFavorite = { artist, time };
-    const updatedFavorites = [...favorites, newFavorite];
+    let updatedFavorites;
+    if (favorites.some((favorite) => favorite.artist === artist)) {
+      updatedFavorites = favorites.filter((favorite) => favorite.artist !== artist);
+    } else {
+      updatedFavorites = [...favorites, newFavorite];
+    }
+    setFavorites(updatedFavorites);
+    await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+
+  const removeFavorite = async (artist) => {
+    const updatedFavorites = favorites.filter((favorite) => favorite.artist !== artist);
     setFavorites(updatedFavorites);
     await AsyncStorage.setItem('favorites', JSON.stringify(updatedFavorites));
   };
@@ -75,10 +86,10 @@ export default function Scene() {
 
   return (<>
     <View>
-        <CustomHeader title="Home" />
-      </View>
+      <CustomHeader title="Home" />
+    </View>
     <ScrollView showsVerticalScrollIndicator={false}>
-     
+
       <View style={styles.container}>
 
         <View>
@@ -87,7 +98,7 @@ export default function Scene() {
               <View className="scene-header-container">
                 <View className="header-text-container">
                   <Text style={styles.header}>{scene.name}</Text>
-                  
+
                 </View>
                 <View className="popuptext-container">
 
@@ -125,7 +136,7 @@ export default function Scene() {
               <Text style={{ display: 'flex', justifyContent: 'space-between' }}>
                 {performance.artist} - {performance.time}
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                <Text >favorite</Text>
+                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
                 </TouchableOpacity>
               </Text>
             </View>
@@ -147,9 +158,9 @@ export default function Scene() {
                 {performance.artist} - {performance.time}
 
                 <View className='favorite-icon-container'>
-                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                    <Text>Add Favorite</Text>
-                  </TouchableOpacity>
+                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
+                </TouchableOpacity>
                 </View>
               </Text>
             </View>
@@ -170,9 +181,9 @@ export default function Scene() {
 
                 {performance.artist} - {performance.time}
                 <View className='favorite-icon-container'>
-                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                    <Text>Add Favorite</Text>
-                  </TouchableOpacity>
+                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
+                </TouchableOpacity>
                 </View>
               </Text>
             </View>
@@ -181,6 +192,6 @@ export default function Scene() {
 
       </View>
     </ScrollView>
-              </>
+  </>
   )
 }
