@@ -38,7 +38,7 @@ export default function Scene() {
       padding: 10,
       borderRadius: 10,
       backgroundColor: '#ffffff',
-      width: 300,
+      width: 340,
     },
     sceneHeader: {
       textAlign: 'left',
@@ -50,9 +50,9 @@ export default function Scene() {
       borderRadius: 15,
       backgroundColor: '#e9e9e9',
       width: 'auto',
-      marginBottom: 2,
+      marginBottom: 5,
       marginHorizontal: 5,
-      padding: 3,
+      padding: 5,
     },
     sceneAndPopup: {
       flexDirection: 'row',
@@ -90,10 +90,27 @@ export default function Scene() {
       position: 'absolute',
       top: 15,
       right: 10,
-      
-      
+    },
+   
+    favoriteSquare: {
+      margin: 10,
+      marginLeft: 'auto',
+      marginRight: 'auto',
+      padding: 10,
+      borderRadius: 10,
+      backgroundColor: '#ffffff',
+      width: 340,
+      borderWidth: 2,
+      borderColor: 'black',
+    },
+    favoritHeader: {
+      alignSelf: 'flex-start',
+      marginBottom: 10,
+      fontWeight: 'bold',
+      fontSize: 25,
     },
   });
+ 
 
 
 
@@ -147,14 +164,18 @@ export default function Scene() {
                 </View>
                 <View style={styles.textPopupContainer}>
                   <TextPopup src={
-                    <View>
-                      <Text>Favoriter:</Text>
-                      {favorites.map((favorite) => (
-                        <Text key={favorite.artist}>
-                          {favorite.artist} - {favorite.time}
-                        </Text>
-                      ))}
-                    </View>
+                   <View style={styles.container}>
+                   <View style={styles.favoriteSquare}>
+                     <Text style={styles.favoritHeader}>Favoriter:</Text>
+                     {favorites.map((favorite) => (
+                      <View style={styles.textArtist}>
+                       <Text  key={favorite.artist}>
+                         {favorite.artist} - {favorite.time}
+                       </Text>
+                       </View>
+                     ))}
+                   </View>
+                 </View>
                   } />
                 </View>
               </View>
