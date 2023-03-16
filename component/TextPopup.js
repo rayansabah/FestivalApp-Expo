@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { View, Image, TouchableOpacity, Modal, StyleSheet , Text } from 'react-native';
-import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
+import { Fontisto, Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
-function ImgPopup({ src }) {
+function TextPopup({ src }) {
   const [showPopup, setShowPopup] = useState(false);
 
   const handleButtonClick = () => {
@@ -20,7 +20,7 @@ function ImgPopup({ src }) {
         style={styles.imagePopupButton}
         onPress={handleButtonClick}
       >
-        <SimpleLineIcons name="picture" size={24} color="black" />
+        <Fontisto name="bookmark" size={24} color="black" />
       </TouchableOpacity>
       <Modal
         animationType="slide"
@@ -35,7 +35,7 @@ function ImgPopup({ src }) {
           >
             <Ionicons name="close-outline" size={34} color="black" />
           </TouchableOpacity>
-          <Image source={{ uri: src }} style={styles.popupImage} />
+          <Text>{src}</Text>
         </BlurView>
       </Modal>
     </>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ImgPopup;
+export default TextPopup;

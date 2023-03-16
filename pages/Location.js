@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import React from 'react';
 import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
-
+import data from '../jsonTemp/location.json';
 
 
 export default function Location() {
@@ -48,9 +48,9 @@ export default function Location() {
         { latitude: 58.077658686583014, longitude: 13.026891111522069 },
         { latitude: 58.07756924160367, longitude: 13.026280193933783 },
         { latitude: 58.077220369264715, longitude: 13.026162302768782 },
-        { latitude:  58.07729921435969, longitude: 13.027166663602575 },
-        
-        
+        { latitude: 58.07729921435969, longitude: 13.027166663602575 },
+
+
     ];
 
     const polygonStadsparken = [
@@ -70,57 +70,65 @@ export default function Location() {
         { latitude: 58.077356901831855, longitude: 13.022208258300067 },
         { latitude: 58.07725051321702, longitude: 13.0247935705603 },
         { latitude: 58.07721018846615, longitude: 13.02611283622232 },
-     
-         
+
+
     ];
 
     return (<>
         <View>
-        <CustomHeader title="Home" />
-      </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
-           
-        <View>
-            <View style={styles.locationSquare}>
-                <Text style={styles.header}>Område</Text>
-                <Text>info om fliken</Text>
-            </View>
-
-            <View style={styles.mapSquare}>
-                <MapView style={styles.map} initialRegion={{
-                    latitude: coordinate.latitude,
-                    longitude: coordinate.longitude,
-                    latitudeDelta: 0.005,
-                    longitudeDelta: 0.005,
-                }} legalLabelInsets={{ bottom: 'never', right: 'never' }}>
-
-                    <Polygon
-                        coordinates={polygonTorget}
-                        fillColor={'rgba(255, 251, 0, 0.3)'}
-                        strokeColor={'rgba(255, 251, 0, 0.5)'}
-                        strokeWidth={5}
-                    />
-                    <Polygon
-                        coordinates={polygonStadsparken}
-                        fillColor={'rgba(252,219,202,255)'}
-                        strokeColor={'rgba(252,219,202,255)'}
-                        strokeWidth={5}
-                    />
-                    <Polygon
-                        coordinates={polygonTradgardsgatan}
-                        fillColor={'rgba(199,232,221,255)'}
-                        strokeColor={'rgba(199,232,221,255)'}
-                        strokeWidth={1}
-                    />
-                </MapView>
-            </View>
-
-
-            <View style={styles.locationSquare}>
-                <Text>info om områderna</Text>
-            </View>
+            <CustomHeader title="Home" />
         </View>
+        <ScrollView showsVerticalScrollIndicator={false}>
+
+            <View>
+                <View style={styles.locationSquare}>
+                    <Text style={styles.header}>Område</Text>
+                    <Text>info om fliken</Text>
+                </View>
+
+                <View style={styles.mapSquare}>
+                    <MapView style={styles.map} initialRegion={{
+                        latitude: coordinate.latitude,
+                        longitude: coordinate.longitude,
+                        latitudeDelta: 0.005,
+                        longitudeDelta: 0.005,
+                    }} legalLabelInsets={{ bottom: 'never', right: 'never' }}>
+
+                        <Polygon
+                            coordinates={polygonTorget}
+                            fillColor={'rgba(255, 251, 0, 0.3)'}
+                            strokeColor={'rgba(255, 251, 0, 0.5)'}
+                            strokeWidth={5}
+                        />
+                        <Polygon
+                            coordinates={polygonStadsparken}
+                            fillColor={'rgba(252,219,202,255)'}
+                            strokeColor={'rgba(252,219,202,255)'}
+                            strokeWidth={5}
+                        />
+                        <Polygon
+                            coordinates={polygonTradgardsgatan}
+                            fillColor={'rgba(199,232,221,255)'}
+                            strokeColor={'rgba(199,232,221,255)'}
+                            strokeWidth={1}
+                        />
+                    </MapView>
+                </View>
+
+
+                <View style={styles.locationSquare}>
+                    <View>
+                        {data.LocationInfo.map((location, index) => (
+                            <View key={index}>
+                                <Text style={styles.header}>{location.name}</Text>
+                                <Text>{location.info}</Text>
+                            </View>
+                        ))}
+                    </View>
+                </View>
+
+            </View>
         </ScrollView>
-        </>
+    </>
     )
 }

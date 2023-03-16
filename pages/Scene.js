@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImgPopup from '../component/ImgPopup';
+import { Feather } from '@expo/vector-icons';
+import TextPopup from '../component/TextPopup';
+
 
 import data from '../jsonTemp/scene.json';
 
@@ -21,11 +24,7 @@ export default function Scene() {
       alignItems: 'center',
       justifyContent: 'center',
     },
-    container1: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'space-between',
-    },
+
     header: {
       textAlign: 'center',
       fontSize: 24,
@@ -55,7 +54,48 @@ export default function Scene() {
       marginHorizontal: 5,
       padding: 3,
     },
+    sceneAndPopup: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+
+    },
+    popupContainer: {
+      marginLeft: 10,
+      marginRight: 10,
+      marginBottom: 20,
+    },
+    favirotAndArtist: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+
+    },
+    favoritContainer: {
+      marginLeft: 10,
+      marginRight: 10,
+      marginBottom: 20,
+    },
+    sceneHeaderContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      padding: 10,
+    },
+    headerContainer: {
+      flex: 1,
+      alignItems: 'center',
+    },
+    textPopupContainer: {
+      position: 'absolute',
+      top: 15,
+      right: 10,
+      
+      
+    },
   });
+
+
 
   /// Favorit funktion start  
   const [favorites, setFavorites] = useState([]);
@@ -101,15 +141,24 @@ export default function Scene() {
         <View>
           {data.SceneInfo.map((scene) => (
             <View style={styles.square} key={scene.name}>
-              <View className="scene-header-container">
-                <View className="header-text-container">
+              <View style={styles.sceneHeaderContainer}>
+                <View style={styles.headerContainer}>
                   <Text style={styles.header}>{scene.name}</Text>
-
                 </View>
-                <View className="popuptext-container">
-
+                <View style={styles.textPopupContainer}>
+                  <TextPopup src={
+                    <View>
+                      <Text>Favoriter:</Text>
+                      {favorites.map((favorite) => (
+                        <Text key={favorite.artist}>
+                          {favorite.artist} - {favorite.time}
+                        </Text>
+                      ))}
+                    </View>
+                  } />
                 </View>
               </View>
+
 
               <Text>
                 {scene.info.map((item, index) => (
@@ -120,34 +169,30 @@ export default function Scene() {
           ))}
         </View>
 
-        <View style={styles.square}>
-          <Text>Favoriter:</Text>
-          {favorites.map((favorite) => (
-            <Text key={favorite.artist}>
-              {favorite.artist} - {favorite.time}
-            </Text>
-          ))}
-        </View>
 
 
         <View style={styles.square}>
-          <View style={styles.container1}>
-              <Text style={styles.sceneHeader}>{scen1.name}
-            <View>
+          <View style={styles.sceneAndPopup}>
+            <Text style={styles.sceneHeader}>{scen1.name}</Text>
+            <View style={styles.popupContainer}>
               <ImgPopup src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJGrby2IngYbvnblxD_d78O-TFa7Q71Ei1owPAJ_dHhtkBeNtbga6VAtNaQoK8O5b0zfY&usqp=CAU" />
             </View>
-              </Text>
+
           </View>
 
 
+
           {scen1.performances.map((performance) => (
-            <View style={styles.textArtist} key={performance.artist}>
-              <Text style={{ display: 'flex', justifyContent: 'space-between' }}>
-                {performance.artist} - {performance.time}
+            <View style={styles.textArtist}>
+              <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                  <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
+                  {favorites.some((favorite) => favorite.artist === performance.artist) ?
+                    <Feather name="heart" size={16} color="red" /> :
+                    <Feather name="heart" size={16} color="gray" />
+                  }
                 </TouchableOpacity>
-              </Text>
+              </View>
             </View>
           ))}
 
@@ -155,23 +200,25 @@ export default function Scene() {
         </View>
         {/* Robert start */}
         <View style={styles.square}>
-          <View className='scene-flex'>
+          <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen2.name}</Text>
+            <View style={styles.popupContainer}>
+              <ImgPopup src="https://media.tenor.com/zrpyKEyxZGwAAAAC/fat-cat-laser-eyes.gif" />
+            </View>
 
           </View>
 
           {scen2.performances.map((performance) => (
             <View style={styles.textArtist}>
-              <Text key={performance.artist} style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-                {performance.artist} - {performance.time}
-
-                <View className='favorite-icon-container'>
-                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                    <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
-                  </TouchableOpacity>
-                </View>
-              </Text>
+              <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
+                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                  {favorites.some((favorite) => favorite.artist === performance.artist) ?
+                    <Feather name="heart" size={16} color="red" /> :
+                    <Feather name="heart" size={16} color="gray" />
+                  }
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
 
@@ -179,22 +226,25 @@ export default function Scene() {
         {/* Robert slut */}
 
         <View style={styles.square}>
-          <View className='scene-flex'>
+          <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen3.name}</Text>
+            <View style={styles.popupContainer}>
+              <ImgPopup src="https://media2.giphy.com/media/aYZIeUDU3qvPa/giphy.gif?cid=6c09b952rh6g343ssn5uzqaxr3k2wq7rra49be6g71rkwsql&rid=giphy.gif&ct=g" />
+            </View>
 
           </View>
 
           {scen3.performances.map((performance) => (
             <View style={styles.textArtist}>
-              <Text key={performance.artist} style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-                {performance.artist} - {performance.time}
-                <View className='favorite-icon-container'>
-                  <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
-                    <Text>{favorites.some((favorite) => favorite.artist === performance.artist) ? "unfavorite" : "favorite"}</Text>
-                  </TouchableOpacity>
-                </View>
-              </Text>
+              <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
+                <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
+                <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
+                  {favorites.some((favorite) => favorite.artist === performance.artist) ?
+                    <Feather name="heart" size={16} color="red" /> :
+                    <Feather name="heart" size={16} color="gray" />
+                  }
+                </TouchableOpacity>
+              </View>
             </View>
           ))}
         </View>
