@@ -3,7 +3,7 @@ import React from 'react';
 import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
 import data from '../jsonTemp/location.json';
-
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function Location() {
     const styles = StyleSheet.create({
@@ -32,11 +32,30 @@ export default function Location() {
             fontSize: 24,
             fontWeight: 'bold',
             marginBottom: 20,
+            position: 'relative',
+            top: 15,
+
+            
         },
         map: {
             width: '100%',
             height: '100%',
         },
+        favoriteSquare: {
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          
+          
+            borderRadius: 10,
+            backgroundColor: '#ffffff',
+            width: 250,
+            borderWidth: 2,
+            borderColor: 'white',
+
+            flex: 1,
+            textAlign: 'center',
+            textAlignVertical: 'center',
+        }
     });
 
     const coordinate = {
@@ -83,7 +102,10 @@ export default function Location() {
             <View>
                 <View style={styles.locationSquare}>
                     <Text style={styles.header}>Område</Text>
-                    <Text>info om fliken</Text>
+                    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+                        
+                    <Text style={{ textAlign: 'center' }}>Här hittar du en karta över alla scener som finns på festivalen, samt information om respektive scen</Text>
+                    </View>
                 </View>
 
                 <View style={styles.mapSquare}>
@@ -119,9 +141,11 @@ export default function Location() {
                 <View style={styles.locationSquare}>
                     <View>
                         {data.LocationInfo.map((location, index) => (
-                            <View key={index}>
-                                <Text style={styles.header}>{location.name}</Text>
-                                <Text>{location.info}</Text>
+                            <View style={styles.square} key={index}>
+                                <Text style={styles.header}>{location.name}
+                                    <FontAwesome name="circle" size={24} color={location.color} />
+                                </Text>
+                                <Text style={styles.favoriteSquare}>{location.info}</Text>
                             </View>
                         ))}
                     </View>
