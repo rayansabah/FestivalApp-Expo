@@ -6,7 +6,7 @@ export default function VeganIcon({ isVegan }) {
   if (isVegan) {
     return (
       <View>
-        <FontAwesome name="leaf" size={13} color="green" />
+        <FontAwesome name="leaf" size={22} color="green" />
       </View>
     );
   } else {

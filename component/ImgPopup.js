@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, TouchableOpacity, Modal, StyleSheet , Text } from 'react-native';
+import { Image, TouchableOpacity, Modal, StyleSheet} from 'react-native';
 import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 

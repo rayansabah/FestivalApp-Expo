@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import CustomHeader from '../component/CustomHeader';
 
+import CustomHeader from '../component/CustomHeader';
 import VeganIcon from '../component/VeganIcon';
+import MeatIcon from '../component/MeatIcon'
 
 import food from '../jsonTemp/food.json';
 
@@ -30,14 +31,24 @@ const Food = () => {
         {food.FoodMenu.map((menu, index) => (
           <View key={index}>
             <View key={menu.name} style={styles.square}>
-              <Text style={styles.foodHeader}>{menu.name}</Text>
+
+              <View style={styles.foodContainer}>
+                <View style={styles.foodName}>
+                  <Text style={styles.foodHeader}>{menu.name}</Text>
+                </View>
+                
+                <VeganIcon isVegan={menu.vegan === 'true'} />
+                <MeatIcon isMeat={menu.meat === 'true'} />
+                
+              </View>
               {menu.menu.map((item, index) => (
-                <View style= {styles.textFood}>
+                <View style={styles.textFood}>
                   <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }} >
                     <Text key={index}>
                       {item.food}
                     </Text>
-                    <VeganIcon isVegan={item.vegan === 'true'} />
+
+
                   </View>
                 </View>
               ))}
@@ -62,6 +73,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+   
   },
   square: {
     margin: 10,
@@ -85,6 +97,15 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginHorizontal: 5,
     padding: 5,
+  },
+  foodContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+   
+  },
+  foodName: {
+    flex: 1,
   }
 });
 
