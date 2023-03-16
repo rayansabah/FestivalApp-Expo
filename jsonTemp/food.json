@@ -1,35 +1,45 @@
 {
-    "FoodInfo":[
-         {
+    "FoodInfo": [
+        {
             "name": "Mat",
             "info": [
                 "fajfajsfaj jfnajfnajksfnaks knasflsnfasnfalsk"
-               
             ]
         }
-
     ],
     "FoodMenu": [
-       
         {
-            "name": "Matvagn1",
+            "name": "matvagn1",
             "menu": [
-                "Hamburgare",
-                "Korv"
+                {
+                    "food": "Aeho1",
+                    "vegan": "true"
+                },
+                {
+                    "food": "Aeho2",
+                    "vegan": "false"
+                },
+                {
+                    "food": "Aeho3",
+                    "vegan": "true"
+                }
             ]
         },
         {
-            "name": "Matvagn2",
+            "name": "matvagn1",
             "menu": [
-                "Hamburgare",
-                "Korv"
-            ]
-        },
-        {
-            "name": "Matvagn3",
-            "menu": [
-                "Hamburgare",
-                "Korv"
+                {
+                    "food": "Aeho4",
+                    "vegan": "false"
+                },
+                {
+                    "food": "Aeho5",
+                    "vegan": "false"
+                },
+                {
+                    "food": "Aeho6",
+                    "vegan": "true"
+                }
             ]
         }
     ]

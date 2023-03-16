@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import CustomHeader from '../component/CustomHeader';
 
+import VeganIcon from '../component/VeganIcon';
+
 import food from '../jsonTemp/food.json';
 
 const Food = () => {
@@ -25,26 +27,22 @@ const Food = () => {
           ))}
         </View>
 
-
-        {food.FoodMenu.map((Food, index) => (
+        {food.FoodMenu.map((menu, index) => (
           <View key={index}>
-            <View style={styles.square}>
-
-              <Text style={styles.foodHeader}>{Food.name}</Text>
-
-              {Food.menu.map((menu, index) => (
-                <View className='text-food'>
-                  <Text key={index}>
-                    <Text>{menu}</Text>
-
-                  </Text>
+            <View key={menu.name} style={styles.square}>
+              <Text style={styles.foodHeader}>{menu.name}</Text>
+              {menu.menu.map((item, index) => (
+                <View style= {styles.textFood}>
+                  <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }} >
+                    <Text key={index}>
+                      {item.food}
+                    </Text>
+                    <VeganIcon isVegan={item.vegan === 'true'} />
+                  </View>
                 </View>
               ))}
-
             </View>
           </View>
-
-
         ))}
 
       </View>
@@ -79,6 +77,14 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
+  },
+  textFood: {
+    borderRadius: 15,
+    backgroundColor: '#e9e9e9',
+    width: 'auto',
+    marginBottom: 5,
+    marginHorizontal: 5,
+    padding: 5,
   }
 });
 
