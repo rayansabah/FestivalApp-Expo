@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import CustomHeader from '../component/CustomHeader';
 import VeganIcon from '../component/VeganIcon';
 import MeatIcon from '../component/MeatIcon'
+import FishIcon from '../component/FishIcon'
 
 import food from '../jsonTemp/food.json';
 
@@ -39,6 +40,7 @@ const Food = () => {
                 
                 <VeganIcon isVegan={menu.vegan === 'true'} />
                 <MeatIcon isMeat={menu.meat === 'true'} />
+                <FishIcon isFish={menu.fish === 'true'} />
                 
               </View>
               {menu.menu.map((item, index) => (

@@ -12,23 +12,21 @@
             "name": "Toro Grill",
             "vegan": "false",
             "meat": "true",
+            "fish": "false",
             "menu": [
                 {
-                    "food": "Handgjorda burgare & hemgjorda pommes frites. (K)",
-                    "vegan": "false",
-                    "meat": "true"
+                    "food": "Handgjorda burgare & hemgjorda pommes frites. (K)"
                 }
             ]
         },
         {
             "name": "Jafaris",
             "vegan": "true",
-            "meat": "true",
+            "meat": "false",
+            "fish": "false",
             "menu": [
                 {
-                    "food": "Donut, churros, mjukglass, slush & sockervadd (V)",
-                    "vegan": "true",
-                    "meat": "true"
+                    "food": "Donut, churros, mjukglass, slush & sockervadd (V)"
                 }
             ]
         },
@@ -36,23 +34,23 @@
             "name": "Mat & Sånt",
             "vegan": "true",
             "meat": "true",
+            "fish": "true",
             "menu": [
                 {
-                    "food": "Sushi & Dumplings (F, K osäker på V)",
-                    "vegan": "true",
-                    "meat": "true"
+                    "food": "Sushi & Dumplings (F, K osäker på V)"
                 }
             ]
         },
         {
             "name": "Captain Johns Fish n Chips Borås ",
             "vegan": "false",
-            "meat": "true",
+            "meat": "false",
+            "fish": "true",
             "menu": [
                 {
-                    "food": "Friterat från havet och pommes (F)",
-                    "vegan": "false",
-                    "meat": "true"
+                    "food": "Friterat från havet och pommes (F)"
+                    
+                    
                 }
             ]
         },
@@ -60,11 +58,10 @@
             "name": "Hjorts kök ",
             "vegan": "false",
             "meat": "true",
+            "fish": "false",
             "menu": [
                 {
-                    "food": "Grillat kött (K)",
-                    "vegan": "false",
-                    "meat": "true"
+                    "food": "Grillat kött (K)"
                 }
             ]
         },
@@ -72,6 +69,7 @@
             "name": "Vedeldspizzan",
             "vegan": "true",
             "meat": "true",
+            "fish": "true",
             "menu": [
                 {
                     "food": "5 olika sorters pizzor. (K, V, troligt F)"
@@ -82,11 +80,10 @@
             "name": "Adisagrillen AB",
             "vegan": "true",
             "meat": "true",
+            "fish": "true",
             "menu": [
                 {
-                    "food": "Kolgrillad persisk mat. Främst spett men även kolgrillad lax & grytor (K, F troligt V) ",
-                    "vegan": "true",
-                    "meat": "true"
+                    "food": "Kolgrillad persisk mat. Främst spett men även kolgrillad lax & grytor (K, F troligt V) "
                 }
             ]
         }
