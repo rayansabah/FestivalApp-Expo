@@ -91,7 +91,7 @@ export default function Scene() {
       top: 15,
       right: 10,
     },
-   
+
     favoriteSquare: {
       margin: 10,
       marginLeft: 'auto',
@@ -109,8 +109,17 @@ export default function Scene() {
       fontWeight: 'bold',
       fontSize: 25,
     },
+    link: {
+      fontSize: 25,
+      color: '#fff',
+      marginBottom: 10,
+      fontFamily: 'MontserratBold',
+      paddingVertical: 5,
+      
+  
+    }
   });
- 
+
 
 
 
@@ -164,18 +173,18 @@ export default function Scene() {
                 </View>
                 <View style={styles.textPopupContainer}>
                   <TextPopup src={
-                   <View style={styles.container}>
-                   <View style={styles.favoriteSquare}>
-                     <Text style={styles.favoritHeader}>Favoriter:</Text>
-                     {favorites.map((favorite) => (
-                      <View style={styles.textArtist}>
-                       <Text  key={favorite.artist}>
-                         {favorite.artist} - {favorite.time}
-                       </Text>
-                       </View>
-                     ))}
-                   </View>
-                 </View>
+                    <View style={styles.container}>
+                      <View style={styles.favoriteSquare}>
+                        <Text style={styles.favoritHeader}>Favoriter:</Text>
+                        {favorites.map((favorite) => (
+                          <View style={styles.textArtist}>
+                            <Text key={favorite.artist}>
+                              {favorite.artist} - {favorite.time}
+                            </Text>
+                          </View>
+                        ))}
+                      </View>
+                    </View>
                   } />
                 </View>
               </View>
@@ -209,8 +218,8 @@ export default function Scene() {
                 <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
                   {favorites.some((favorite) => favorite.artist === performance.artist) ?
-                    <Feather name="heart" size={16} color="red" /> :
-                    <Feather name="heart" size={16} color="gray" />
+                    <Feather name="heart" size={20} color="red" /> :
+                    <Feather name="heart" size={20} color="gray" />
                   }
                 </TouchableOpacity>
               </View>
@@ -268,6 +277,11 @@ export default function Scene() {
               </View>
             </View>
           ))}
+        </View>
+        <View style={{ alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+            <Text style={styles.link}>#välkommenhit</Text>
+          </TouchableOpacity>
         </View>
       </View>
     </ScrollView>

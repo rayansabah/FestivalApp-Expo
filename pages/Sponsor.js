@@ -1,6 +1,6 @@
 
 import SponsorData from '../jsonTemp/sponsorsInfo.json'
-import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
 import CustomHeader from '../component/CustomHeader';
 
@@ -24,6 +24,11 @@ function Sponsor() {
                 />
               </View>
             ))}
+          </View>
+          <View style={{ alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+          <Text style={styles.link}>#välkommenhit</Text>
+        </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -53,5 +58,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     width: 300,
   },
+  link: {
+    fontSize: 25,
+    color: '#fff',
+    marginBottom: 10,
+    fontFamily: 'MontserratBold',
+    paddingVertical: 5,
+    
+
+  }
 });
 export default Sponsor;

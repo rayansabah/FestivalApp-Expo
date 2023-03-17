@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native'
 import React from 'react';
 import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
@@ -35,7 +35,7 @@ export default function Location() {
             position: 'relative',
             top: 15,
 
-            
+
         },
         map: {
             width: '100%',
@@ -44,8 +44,8 @@ export default function Location() {
         favoriteSquare: {
             marginLeft: 'auto',
             marginRight: 'auto',
-          
-          
+
+
             borderRadius: 10,
             backgroundColor: '#ffffff',
             width: 250,
@@ -55,6 +55,15 @@ export default function Location() {
             flex: 1,
             textAlign: 'center',
             textAlignVertical: 'center',
+        },
+        link: {
+            fontSize: 25,
+            color: '#fff',
+            marginBottom: 10,
+            fontFamily: 'MontserratBold',
+            paddingVertical: 5,
+
+
         }
     });
 
@@ -103,8 +112,8 @@ export default function Location() {
                 <View style={styles.locationSquare}>
                     <Text style={styles.header}>Område</Text>
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                        
-                    <Text style={{ textAlign: 'center' }}>Här hittar du en karta över alla scener som finns på festivalen, samt information om respektive scen</Text>
+
+                        <Text style={{ textAlign: 'center' }}>Här hittar du en karta över alla scener som finns på festivalen, samt information om respektive scen</Text>
                     </View>
                 </View>
 
@@ -151,6 +160,11 @@ export default function Location() {
                     </View>
                 </View>
 
+            </View>
+            <View style={{ alignItems: 'center' }}>
+                <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+                    <Text style={styles.link}>#välkommenhit</Text>
+                </TouchableOpacity>
             </View>
         </ScrollView>
     </>

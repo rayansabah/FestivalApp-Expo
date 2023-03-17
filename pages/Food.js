@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
 
 import CustomHeader from '../component/CustomHeader';
 import VeganIcon from '../component/VeganIcon';
@@ -37,11 +37,11 @@ const Food = () => {
                 <View style={styles.foodName}>
                   <Text style={styles.foodHeader}>{menu.name}</Text>
                 </View>
-                
+
                 <VeganIcon isVegan={menu.vegan === 'true'} />
                 <MeatIcon isMeat={menu.meat === 'true'} />
                 <FishIcon isFish={menu.fish === 'true'} />
-                
+
               </View>
               {menu.menu.map((item, index) => (
                 <View style={styles.textFood}>
@@ -59,6 +59,11 @@ const Food = () => {
         ))}
 
       </View>
+      <View style={{ alignItems: 'center' }}>
+        <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+          <Text style={styles.link}>#välkommenhit</Text>
+        </TouchableOpacity>
+      </View>
     </ScrollView>
   </>
   );
@@ -75,7 +80,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-   
+
   },
   square: {
     margin: 10,
@@ -104,10 +109,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-   
+
   },
   foodName: {
     flex: 1,
+  },
+  link: {
+    fontSize: 25,
+    color: '#fff',
+    marginBottom: 10,
+    fontFamily: 'MontserratBold',
+    paddingVertical: 5,
+
+
   }
 });
 

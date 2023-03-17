@@ -5,6 +5,7 @@ import { View, Text, TouchableOpacity, StyleSheet, Linking } from 'react-native'
 import { LinearGradient } from 'expo-linear-gradient';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 
 
@@ -39,23 +40,40 @@ const HomeScreen = ({ navigation }) => {
 
       <View style={{ alignItems: 'center' }}>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 5 }]}>Scener</Text>
+          <Text style={styles.link}>Scener</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Location')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Område</Text>
+          <Text style={styles.link}>Område</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Food')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Mat</Text>
+          <Text style={styles.link}>Mat</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Sponsorer</Text>
+          <Text style={styles.link}>Sponsorer</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
           <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta oss</Text>
+        </TouchableOpacity> */}
+        <TouchableOpacity onPress={() => Linking.openURL('mailto:Festival@Herrljunga.se')}>
+          <Text style={styles.link}>Kontakta oss</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>#välkommenhit</Text>
+          <Text style={styles.link}>#välkommenhit</Text>
         </TouchableOpacity>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+          <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+            <Icon name="instagram" size={40} color="#fff" />
+          </TouchableOpacity>
+          <View style={{ marginHorizontal: 10 }} />
+          <TouchableOpacity onPress={() => Linking.openURL('https://facebook.com/herrljungakommun')}>
+            <Icon name="facebook-square" size={40} color="#fff" />
+          </TouchableOpacity>
+          <View style={{ marginHorizontal: 10 }} />
+          <TouchableOpacity onPress={() => Linking.openURL('https://www.linkedin.com/company/herrljunga-kommun')}>
+            <Icon name="linkedin-square" size={40} color="#fff" />
+          </TouchableOpacity>
+        </View>
+
       </View>
 
 
@@ -150,7 +168,7 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Scene" component={SceneScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Location" component={LocationScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }}/>
+        <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
@@ -177,6 +195,8 @@ const styles = StyleSheet.create({
     fontSize: 30,
     color: '#fff',
     marginBottom: 10,
+    fontFamily: 'MontserratBold',
+    paddingVertical: 5
 
   },
 });
