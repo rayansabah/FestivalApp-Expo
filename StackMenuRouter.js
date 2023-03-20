@@ -6,6 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import WeatherPopup from './component/WeatherPopup';
 
 
 
@@ -37,7 +38,7 @@ const HomeScreen = ({ navigation }) => {
     >
 
       <SvgComponent />
-
+      <WeatherPopup/>
       <View style={{ alignItems: 'center' }}>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
           <Text style={styles.link}>Scener</Text>
@@ -51,9 +52,9 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
           <Text style={styles.link}>Sponsorer</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta oss</Text>
-        </TouchableOpacity> */}
+        <TouchableOpacity onPress={() => navigation.navigate('Contact1')}>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta ossaa</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={() => Linking.openURL('mailto:Festival@Herrljunga.se')}>
           <Text style={styles.link}>Kontakta oss</Text>
         </TouchableOpacity>
@@ -171,6 +172,8 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="Contact1" component={ConatctScreen} options={{ headerShown: false }} />
+        
       </Stack.Navigator>
 
     </NavigationContainer>
