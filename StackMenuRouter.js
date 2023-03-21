@@ -37,8 +37,12 @@ const HomeScreen = ({ navigation }) => {
       style={styles.container}
     >
 
-      <SvgComponent />
-      <WeatherPopup/>
+  <SvgComponent />
+<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+  <View style={{ position: 'absolute', right: 130, bottom: 123, }}>
+    <WeatherPopup />
+  </View>
+</View>
       <View style={{ alignItems: 'center' }}>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
           <Text style={styles.link}>Scener</Text>
@@ -52,9 +56,9 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
           <Text style={styles.link}>Sponsorer</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('Contact1')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta ossaa</Text>
-        </TouchableOpacity>
+        {/* <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
+          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta oss</Text>
+        </TouchableOpacity> */}
         <TouchableOpacity onPress={() => Linking.openURL('mailto:Festival@Herrljunga.se')}>
           <Text style={styles.link}>Kontakta oss</Text>
         </TouchableOpacity>
@@ -172,8 +176,8 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Contact1" component={ConatctScreen} options={{ headerShown: false }} />
-        
+       
+
       </Stack.Navigator>
 
     </NavigationContainer>
@@ -202,6 +206,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5
 
   },
+
 });
 
 export default StackMenuRouter;
