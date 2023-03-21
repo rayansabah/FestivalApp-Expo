@@ -8,7 +8,12 @@ import FishIcon from '../component/FishIcon'
 
 import food from '../jsonTemp/food.json';
 
+import { useFonts } from 'expo-font';
+
 const Food = () => {
+  let [fontsLoaded] = useFonts({
+    'MontserratBold': require('../assets/font/Montserrat-SemiBold.ttf')
+})
   return (<>
     <View>
       <CustomHeader title="Home" />
@@ -22,7 +27,7 @@ const Food = () => {
               <Text style={styles.header}>{food.name}</Text>
               <Text>
                 {food.info.map(item => (
-                  <Text>{item}</Text>
+                  <Text style={{fontFamily: 'MontserratBold'}} >{item}</Text>
                 ))}
               </Text>
             </View>
@@ -46,7 +51,7 @@ const Food = () => {
               {menu.menu.map((item, index) => (
                 <View style={styles.textFood}>
                   <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }} >
-                    <Text key={index}>
+                    <Text style={{fontFamily: 'MontserratBold'}} key={index}>
                       {item.food}
                     </Text>
 
@@ -80,6 +85,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    fontFamily: 'MontserratBold'
 
   },
   square: {
@@ -96,6 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 20,
+    fontFamily: 'MontserratBold'
   },
   textFood: {
     borderRadius: 15,
@@ -104,6 +111,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginHorizontal: 5,
     padding: 5,
+   
   },
   foodContainer: {
     flexDirection: 'row',

@@ -4,8 +4,16 @@ import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
 import data from '../jsonTemp/location.json';
 import { FontAwesome } from '@expo/vector-icons';
+import { useFonts } from 'expo-font';
 
 export default function Location() {
+    let [fontsLoaded] = useFonts({
+        'MontserratBold': require('../assets/font/Montserrat-SemiBold.ttf')
+    })
+
+    // if (!fontsLoaded) {
+    //     return <AppLoading />
+    // }
     const styles = StyleSheet.create({
         mapSquare: {
             marginLeft: 'auto',
@@ -25,6 +33,7 @@ export default function Location() {
             padding: 9,
             borderRadius: 10,
             backgroundColor: '#ffffff',
+            
             width: 340,
         },
         header: {
@@ -34,6 +43,7 @@ export default function Location() {
             marginBottom: 20,
             position: 'relative',
             top: 15,
+            fontFamily: 'MontserratBold',
 
 
         },
@@ -44,8 +54,7 @@ export default function Location() {
         favoriteSquare: {
             marginLeft: 'auto',
             marginRight: 'auto',
-
-
+            fontFamily: 'MontserratBold',
             borderRadius: 10,
             backgroundColor: '#ffffff',
             width: 250,
@@ -60,7 +69,6 @@ export default function Location() {
             fontSize: 25,
             color: '#fff',
             marginBottom: 10,
-            fontFamily: 'MontserratBold',
             paddingVertical: 5,
 
 
