@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity, Modal, StyleSheet, Text } from 'react-native';
+import { View, TouchableWithoutFeedback ,Linking , StyleSheet, Text } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import axios from 'axios';
 
@@ -23,21 +23,14 @@ const WeatherPopup = () => {
     fetchData();
   }, []);
 
-
-  const getTemperature = async () => {
-    try {
-      const response = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${CITY_NAME}&appid=${API_KEY}&units=metric`
-      );
-      const temperature = response.data.main.temp;
-      return Math.round(temperature);
-    } catch (error) {
-      console.error(error);
-    }
+  const handlePress = () => {
+    Linking.openURL('https://www.smhi.se/');
   };
+
 
   return (
     <View >
+          <TouchableWithoutFeedback onPress={handlePress}>
       <View style={styles.container}>
         <FontAwesome5
           name={weatherCondition === 'bright-cloud' ? 'cloud-sun' : 'cloud'}
@@ -46,6 +39,7 @@ const WeatherPopup = () => {
         />
         <Text style={styles.temperature}>{temperature} °C</Text>
       </View>
+    </TouchableWithoutFeedback>
     </View>
   );
 };
