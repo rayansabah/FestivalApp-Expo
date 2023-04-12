@@ -30,19 +30,14 @@ const HomeScreen = ({ navigation }) => {
     return <AppLoading />
   }
   return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
 
-  <SvgComponent />
-<View style={{ flexDirection: 'row', alignItems: 'center' }}>
-  <View style={{ position: 'absolute', right: 130, bottom: 123, }}>
-    <WeatherPopup />
-  </View>
-</View>
+      <SvgComponent />
+      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+        <View style={{ position: 'absolute', right: 130, bottom: 123, }}>
+          <WeatherPopup />
+        </View>
+      </View>
       <View style={{ alignItems: 'center' }}>
         <TouchableOpacity onPress={() => navigation.navigate('Scene')}>
           <Text style={styles.link}>Scener</Text>
@@ -82,69 +77,47 @@ const HomeScreen = ({ navigation }) => {
       </View>
 
 
-    </LinearGradient>
+    </View>
   );
 };
 
 const SceneScreen = () => {
   return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.container}>
         <Scene />
       </View>
-
-
-    </LinearGradient>
+    </View>
   );
 };
 
 const LocationScreen = () => {
   return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.container}>
         <Location />
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 
 const FoodScreen = () => {
   return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.container}>
         <Food />
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 
 const SponsorScreen = () => {
   return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
+    <View style={styles.container}>
       <View style={styles.container}>
         <Sponsor />
       </View>
-    </LinearGradient>
+    </View>
   );
 };
 
@@ -176,7 +149,7 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
-       
+
 
       </Stack.Navigator>
 
@@ -191,6 +164,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#02b4b7'
   },
   title: {
     fontSize: 24,
