@@ -1,19 +1,30 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native'
-import React from 'react';
-import MapView, { Marker, Circle, Polygon } from 'react-native-maps';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking, Animated } from 'react-native'
+import React, { useState } from 'react';
+import MapView, { Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
 import data from '../jsonTemp/location.json';
 import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
+
 
 export default function Location() {
     let [fontsLoaded] = useFonts({
         'MontserratBold': require('../assets/font/Montserrat-SemiBold.ttf')
     })
 
-    // if (!fontsLoaded) {
-    //     return <AppLoading />
-    // }
+    const [expandedLocation, setExpandedLocation] = useState(null);
+
+    const handleLocationPress = (locationIndex) => {
+        setExpandedLocation((prevLocation) => {
+            if (prevLocation === locationIndex) {
+                return null;
+            } else {
+                return locationIndex;
+            }
+        });
+    };
+
+
     const styles = StyleSheet.create({
         mapSquare: {
             marginLeft: 'auto',
@@ -33,7 +44,7 @@ export default function Location() {
             padding: 9,
             borderRadius: 10,
             backgroundColor: '#ffffff',
-            
+
             width: 340,
         },
         header: {
@@ -110,6 +121,10 @@ export default function Location() {
 
     ];
 
+
+
+
+
     return (<>
         <View>
             <CustomHeader title="Home" />
@@ -150,22 +165,27 @@ export default function Location() {
                             fillColor={'rgba(199,232,221,255)'}
                             strokeColor={'rgba(199,232,221,255)'}
                             strokeWidth={1}
+
+
                         />
+
                     </MapView>
                 </View>
 
 
                 <View style={styles.locationSquare}>
-                    <View>
-                        {data.LocationInfo.map((location, index) => (
-                            <View style={styles.square} key={index}>
-                                <Text style={styles.header}>{location.name}
-                                    <FontAwesome name="circle" size={24} color={location.color} />
+                    {data.LocationInfo.map((location, index) => (
+                        <View style={styles.square} key={index}>
+                            <TouchableOpacity onPress={() => handleLocationPress(index)}>
+                                <Text style={styles.header}>
+                                    {location.name} <FontAwesome name="circle" size={24} color={location.color} />
                                 </Text>
+                            </TouchableOpacity>
+                            {expandedLocation === index && (
                                 <Text style={styles.favoriteSquare}>{location.info}</Text>
-                            </View>
-                        ))}
-                    </View>
+                            )}
+                        </View>
+                    ))}
                 </View>
 
             </View>
