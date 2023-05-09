@@ -5,6 +5,7 @@ import CustomHeader from '../component/CustomHeader';
 import data from '../jsonTemp/location.json';
 import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
+import OpenLinkBtn from '../component/OpenLinkBtn';
 
 
 export default function Location() {
@@ -81,9 +82,13 @@ export default function Location() {
             color: '#fff',
             marginBottom: 10,
             paddingVertical: 5,
-
-
+        },
+        buttonContainer: {
+            marginTop: 10, // Adjust the value to control the space between the text and the button
+            alignItems: 'center',
+            borderColor: "black"
         }
+
     });
 
     const coordinate = {
@@ -96,8 +101,6 @@ export default function Location() {
         { latitude: 58.07756924160367, longitude: 13.026280193933783 },
         { latitude: 58.077220369264715, longitude: 13.026162302768782 },
         { latitude: 58.07729921435969, longitude: 13.027166663602575 },
-
-
     ];
 
     const polygonStadsparken = [
@@ -117,7 +120,12 @@ export default function Location() {
         { latitude: 58.077356901831855, longitude: 13.022208258300067 },
         { latitude: 58.07725051321702, longitude: 13.0247935705603 },
         { latitude: 58.07721018846615, longitude: 13.02611283622232 },
-
+    ];
+    const polygonStoraScenen = [
+        { latitude: 58.07741144116911, longitude: 13.026294035429995 },
+        { latitude: 58.077290093067, longitude: 13.026320587942571 },
+        { latitude: 58.077370824701525, longitude: 13.027091559111238},
+        { latitude: 58.077449550405284, longitude: 13.02702422952578 },
 
     ];
 
@@ -133,7 +141,7 @@ export default function Location() {
 
             <View>
                 <View style={styles.locationSquare}>
-                    <Text style={styles.header}>Område</Text>
+                    <Text style={styles.header}>Områden</Text>
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
 
                         <Text style={{ textAlign: 'center' }}>Här hittar du en karta över alla scener som finns på festivalen, samt information om respektive scen</Text>
@@ -150,23 +158,27 @@ export default function Location() {
 
                         <Polygon
                             coordinates={polygonTorget}
-                            fillColor={'rgba(255, 251, 0, 0.3)'}
-                            strokeColor={'rgba(255, 251, 0, 0.5)'}
+                            fillColor={'rgb(102, 255, 102)'}
+                            strokeColor={'rgb(51, 255, 51)'}
                             strokeWidth={5}
                         />
                         <Polygon
                             coordinates={polygonStadsparken}
-                            fillColor={'rgba(252,219,202,255)'}
-                            strokeColor={'rgba(252,219,202,255)'}
+                            fillColor={'rgb(255, 102, 102)'}
+                            strokeColor={'rgb(255, 80, 80)'}
                             strokeWidth={5}
                         />
                         <Polygon
                             coordinates={polygonTradgardsgatan}
-                            fillColor={'rgba(199,232,221,255)'}
-                            strokeColor={'rgba(199,232,221,255)'}
-                            strokeWidth={1}
-
-
+                            fillColor={'rgb(102, 194, 255)'}
+                            strokeColor={'rgb(0, 153, 255)'}
+                            strokeWidth={10}
+                        />
+                        <Polygon
+                            coordinates={polygonStoraScenen}
+                            fillColor={'rgb(253, 104, 251)'}
+                            strokeColor={'rgb(253, 53, 250)'}
+                            strokeWidth={5}
                         />
 
                     </MapView>
@@ -182,7 +194,12 @@ export default function Location() {
                                 </Text>
                             </TouchableOpacity>
                             {expandedLocation === index && (
-                                <Text style={styles.favoriteSquare}>{location.info}</Text>
+                                <View>
+                                    <Text style={styles.favoriteSquare}>{location.info}</Text>
+                                    <View style={styles.buttonContainer}>
+                                        <OpenLinkBtn url={location.mapLink} title="Hitta hit" />
+                                    </View>
+                                </View>
                             )}
                         </View>
                     ))}

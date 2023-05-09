@@ -115,8 +115,8 @@ export default function Scene() {
       marginBottom: 10,
       fontFamily: 'MontserratBold',
       paddingVertical: 5,
-      
-  
+
+
     }
   });
 
@@ -172,20 +172,24 @@ export default function Scene() {
                   <Text style={styles.header}>{scene.name}</Text>
                 </View>
                 <View style={styles.textPopupContainer}>
-                  <TextPopup src={
-                    <View style={styles.container}>
-                      <View style={styles.favoriteSquare}>
-                        <Text style={styles.favoritHeader}>Favoriter:</Text>
-                        {favorites.map((favorite) => (
-                          <View style={styles.textArtist}>
-                            <Text key={favorite.artist}>
-                              {favorite.artist} - {favorite.time}
-                            </Text>
-                          </View>
-                        ))}
+                  <TextPopup
+                    src={
+                      <View style={styles.container}>
+                        <View style={styles.favoriteSquare}>
+                          <Text style={styles.favoritHeader}>Favoriter:</Text>
+                          {favorites
+                            .sort((a, b) => a.time.localeCompare(b.time))
+                            .map((favorite) => (
+                              <View style={styles.textArtist} key={favorite.artist}>
+                                <Text>
+                                  {favorite.artist} - {favorite.time}
+                                </Text>
+                              </View>
+                            ))}
+                        </View>
                       </View>
-                    </View>
-                  } />
+                    }
+                  />
                 </View>
               </View>
 

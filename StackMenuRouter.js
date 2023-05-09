@@ -43,7 +43,7 @@ const HomeScreen = ({ navigation }) => {
           <Text style={styles.link}>Scener</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Location')}>
-          <Text style={styles.link}>Område</Text>
+          <Text style={styles.link}>Områden</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => navigation.navigate('Food')}>
           <Text style={styles.link}>Mat</Text>
