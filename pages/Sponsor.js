@@ -18,17 +18,20 @@ function Sponsor() {
             <Text style={styles.header}>Sponsorer</Text>
             {SponsorData.Sponsors.map((sponsor, index) => (
               <View key={index}>
-                <Image
-                  source={{ uri: sponsor.picture }} // Update with the sponsor's logo URI
-                  style={{ width: 280, height: 200 }}
-                />
+                <TouchableOpacity onPress={() => { Linking.openURL(sponsor.homepage) }}>
+                  <Image
+                    source={{ uri: sponsor.picture }} // Update with the sponsor's logo URI
+                    style={{ flex: 1, aspectRatio: 1 }}
+                    resizeMode="contain"
+                  />
+                </TouchableOpacity>
               </View>
             ))}
           </View>
           <View style={{ alignItems: 'center' }}>
-          <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
-          <Text style={styles.link}>#välkommenhit</Text>
-        </TouchableOpacity>
+            <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
+              <Text style={styles.link}>#välkommenhit</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: 'MontserratBold',
     paddingVertical: 5,
-    
+
 
   }
 });

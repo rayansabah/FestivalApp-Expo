@@ -12,16 +12,16 @@
             "name": "Torget",
             "performances": [
                 {
-                    "artist": "Aeho",
-                    "time": "13.00"
+                    "artist": "Ström",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "Fredd",
-                    "time": "14.00"
+                    "artist": "The Dahmers",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "Gunna",
-                    "time": "15.00"
+                    "artist": "The Hillcats",
+                    "time": "Kommer snart"
                 }
             ]
         },
@@ -29,16 +29,16 @@
             "name": "Stadsparken",
             "performances": [
                 {
-                    "artist": "Bengt Göran",
-                    "time": "13.00"
+                    "artist": "Kommer snart",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "Ulf Jörgendsson",
-                    "time": "14.00"
+                    "artist": "Kommer snart",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "jj da",
-                    "time": "15.00"
+                    "artist": "Kommer snart",
+                    "time": "Kommer snart"
                 }
             ]
         },
@@ -46,16 +46,24 @@
             "name": "Stora Scenen",
             "performances": [
                 {
-                    "artist": "Ölf",
-                    "time": "13.00"
+                    "artist": "Daniel Adams-Ray",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "Gand",
-                    "time": "14.00"
+                    "artist": "Bongo Riot GBG",
+                    "time": "Kommer snart"
                 },
                 {
-                    "artist": "batman",
-                    "time": "15.00"
+                    "artist": "Peg Parnevik",
+                    "time": "Kommer snart"
+                },
+                {
+                    "artist": "Henric Edström",
+                    "time": "Kommer snart"
+                },
+                {
+                    "artist": "Rasmus Blomberg",
+                    "time": "Kommer snart"
                 }
             ]
         }

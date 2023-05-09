@@ -25,11 +25,6 @@ const Food = () => {
           {food.FoodInfo.map(food => (
             <View style={styles.square}>
               <Text style={styles.header}>{food.name}</Text>
-              <Text>
-                {food.info.map(item => (
-                  <Text style={{fontFamily: 'MontserratBold'}} >{item}</Text>
-                ))}
-              </Text>
             </View>
           ))}
         </View>
