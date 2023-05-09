@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <SvgComponent />
+      <SvgComponent svgFile="./assets/logo.svg" />
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ position: 'absolute', right: 130, bottom: 123, }}>
           <WeatherPopup />
