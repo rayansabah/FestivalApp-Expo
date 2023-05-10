@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Image, TouchableOpacity, Modal, StyleSheet, Text } from 'react-native';
-import { Fontisto, Ionicons } from '@expo/vector-icons';
+import { Ionicons, AntDesign } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
 function TextPopup({ src }) {
@@ -20,7 +20,7 @@ function TextPopup({ src }) {
                 style={styles.imagePopupButton}
                 onPress={handleButtonClick}
             >
-                <Fontisto name="bookmark" size={24} color="black" />
+                <AntDesign name="star" size={20} color="black" />
             </TouchableOpacity>
             <Modal
                 animationType="slide"

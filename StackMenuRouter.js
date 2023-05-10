@@ -32,7 +32,7 @@ const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
 
-      <SvgComponent svgFile="./assets/logo.svg" />
+      <SvgComponent />
       <View style={{ flexDirection: 'row', alignItems: 'center' }}>
         <View style={{ position: 'absolute', right: 130, bottom: 123, }}>
           <WeatherPopup />
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
   link: {
     fontSize: 30,
     color: '#fff',
-    marginBottom: 10,
+    marginBottom: 5,
     fontFamily: 'MontserratBold',
     paddingVertical: 5
 

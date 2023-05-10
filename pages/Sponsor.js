@@ -19,11 +19,13 @@ function Sponsor() {
             {SponsorData.Sponsors.map((sponsor, index) => (
               <View key={index}>
                 <TouchableOpacity onPress={() => { Linking.openURL(sponsor.homepage) }}>
-                  <Image
-                    source={{ uri: sponsor.picture }} // Update with the sponsor's logo URI
-                    style={{ flex: 1, aspectRatio: 1 }}
-                    resizeMode="contain"
-                  />
+                  <View style={{ borderBottomWidth: 4, borderBottomColor: 'black', borderBottomLeftRadius:15,borderBottomRightRadius: 15, shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.4, shadowRadius: 4, elevation: 5 }}>
+                    <Image
+                      source={{ uri: sponsor.picture }} // Update with the sponsor's logo URI
+                      style={{ flex: 1, aspectRatio: 1, borderRadius: 10 }}
+                      resizeMode="contain"
+                    />
+                  </View>
                 </TouchableOpacity>
               </View>
             ))}

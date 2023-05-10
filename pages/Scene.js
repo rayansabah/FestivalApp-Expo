@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImgPopup from '../component/ImgPopup';
-import { Feather } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons';
 import TextPopup from '../component/TextPopup';
 
 
@@ -222,8 +222,8 @@ export default function Scene() {
                 <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
                   {favorites.some((favorite) => favorite.artist === performance.artist) ?
-                    <Feather name="heart" size={20} color="red" /> :
-                    <Feather name="heart" size={20} color="gray" />
+                    <AntDesign name="star" size={16} color="black" /> :
+                    <AntDesign name="staro" size={16} color="black" />
                   }
                 </TouchableOpacity>
               </View>
@@ -248,8 +248,8 @@ export default function Scene() {
                 <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
                   {favorites.some((favorite) => favorite.artist === performance.artist) ?
-                    <Feather name="heart" size={16} color="red" /> :
-                    <Feather name="heart" size={16} color="gray" />
+                     <AntDesign name="star" size={16} color="black" /> :
+                     <AntDesign name="staro" size={16} color="black" />
                   }
                 </TouchableOpacity>
               </View>
@@ -274,8 +274,8 @@ export default function Scene() {
                 <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
                   {favorites.some((favorite) => favorite.artist === performance.artist) ?
-                    <Feather name="heart" size={16} color="red" /> :
-                    <Feather name="heart" size={16} color="gray" />
+                    <AntDesign name="star" size={16} color="black" /> :
+                    <AntDesign name="staro" size={16} color="black" />
                   }
                 </TouchableOpacity>
               </View>
