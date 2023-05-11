@@ -1,8 +1,9 @@
 
 import SponsorData from '../jsonTemp/sponsorsInfo.json'
-import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking } from 'react-native';
+import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, Dimensions } from 'react-native';
 
 import CustomHeader from '../component/CustomHeader';
+
 
 function Sponsor() {
 
@@ -16,19 +17,40 @@ function Sponsor() {
         <View>
           <View style={styles.square}>
             <Text style={styles.header}>Sponsorer</Text>
-            {SponsorData.Sponsors.map((sponsor, index) => (
-              <View key={index}>
-                <TouchableOpacity onPress={() => { Linking.openURL(sponsor.homepage) }}>
-                  <View style={{ borderBottomWidth: 4, borderBottomColor: 'black', borderBottomLeftRadius:15,borderBottomRightRadius: 15, shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.4, shadowRadius: 4, elevation: 5 }}>
+            <View>
+              {SponsorData.BigSponsors.map((bigsponsors, index) => (
+                <View key={index}>
+                  <TouchableOpacity onPress={() => { Linking.openURL(bigsponsors.homepage) }}>
+                    <View style={{ borderBottomWidth: 4, borderBottomColor: 'black', borderBottomLeftRadius: 15, borderBottomRightRadius: 15, shadowColor: 'black', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.4, shadowRadius: 4, elevation: 5 }}>
+                      <Image
+                        source={{ uri: bigsponsors.picture }} // Update with the sponsor's logo URI
+                        style={{ flex: 1, aspectRatio: 1, borderRadius: 10 }}
+                        resizeMode="contain"
+                      />
+                    </View>
+                  </TouchableOpacity>
+                </View>
+              ))}
+            </View>
+            <View style={styles.sponsorContainer}>
+              {SponsorData.Sponsors.map((sponsor, index) => (
+                <TouchableOpacity
+                  key={index}
+                  onPress={() => {
+                    Linking.openURL(sponsor.homepage);
+                  }}
+                >
+                  <View style={[styles.sponsorContainerTwo, { width: Dimensions.get('window').width / 2 }]}>
+
                     <Image
                       source={{ uri: sponsor.picture }} // Update with the sponsor's logo URI
-                      style={{ flex: 1, aspectRatio: 1, borderRadius: 10 }}
+                      style={styles.sponsorImage}
                       resizeMode="contain"
                     />
                   </View>
                 </TouchableOpacity>
-              </View>
-            ))}
+              ))}
+            </View>
           </View>
           <View style={{ alignItems: 'center' }}>
             <TouchableOpacity onPress={() => Linking.openURL('https://www.instagram.com/herrljungakommun/')}>
@@ -71,6 +93,32 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
 
 
-  }
+  },
+  sponsorContainer: {
+    justifyContent: 'center',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+  },
+  sponsorContainerTwo: {
+    aspectRatio: 1,
+    borderRadius: 10,
+    justifyContent: 'center',
+    borderBottomWidth: 5, 
+    borderBottomColor: 'black', 
+    borderBottomLeftRadius: 15, 
+    borderBottomRightRadius: 15, 
+    shadowColor: 'black', 
+    shadowOffset: { width: 0, height: 2 }, 
+    shadowOpacity: 0.4, 
+    shadowRadius: 4, 
+    elevation: 5,
+    paddingBottom: 10,
+    paddingTop: 10
+
+  },
+  sponsorImage: {
+    flex: 1,
+    borderRadius: 10,
+  },
 });
 export default Sponsor;
