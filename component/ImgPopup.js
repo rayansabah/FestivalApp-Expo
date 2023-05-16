@@ -3,6 +3,8 @@ import { Image, TouchableOpacity, Modal, StyleSheet} from 'react-native';
 import { SimpleLineIcons, Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
 
+//image popup for the scene page
+
 function ImgPopup({ src }) {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -43,13 +45,6 @@ function ImgPopup({ src }) {
 }
 
 const styles = StyleSheet.create({
-  imagePopupButton: {
-  
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
   popupBackground: {
     flex: 1,
     alignItems: 'center',

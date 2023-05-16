@@ -4,13 +4,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImgPopup from '../component/ImgPopup';
 import { AntDesign } from '@expo/vector-icons';
 import TextPopup from '../component/TextPopup';
-
-
 import data from '../jsonTemp/scene.json';
-
 import CustomHeader from '../component/CustomHeader';
 
-
+//This page displays information for each scene
+//, has a "add to favorite" function and a popup that displays an image of the scene
 
 const scen1 = data.Scenes.find((scene) => scene.name === 'Torget');
 const scen2 = data.Scenes.find((scene) => scene.name === 'Stadsparken');
@@ -58,20 +56,8 @@ export default function Scene() {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-
     },
     popupContainer: {
-      marginLeft: 10,
-      marginRight: 10,
-      marginBottom: 20,
-    },
-    favirotAndArtist: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-
-    },
-    favoritContainer: {
       marginLeft: 10,
       marginRight: 10,
       marginBottom: 20,
@@ -91,7 +77,6 @@ export default function Scene() {
       top: 15,
       right: 10,
     },
-
     favoriteSquare: {
       margin: 10,
       marginLeft: 'auto',
@@ -115,13 +100,8 @@ export default function Scene() {
       marginBottom: 10,
       fontFamily: 'MontserratBold',
       paddingVertical: 5,
-
-
     }
   });
-
-
-
 
   /// Favorit funktion start  
   const [favorites, setFavorites] = useState([]);
@@ -163,7 +143,6 @@ export default function Scene() {
     <ScrollView showsVerticalScrollIndicator={false}>
 
       <View style={styles.container}>
-
         <View>
           {data.SceneInfo.map((scene) => (
             <View style={styles.square} key={scene.name}>
@@ -193,7 +172,6 @@ export default function Scene() {
                 </View>
               </View>
 
-
               <Text>
                 {scene.info.map((item, index) => (
                   <Text key={index}>{item}</Text>
@@ -203,18 +181,13 @@ export default function Scene() {
           ))}
         </View>
 
-
-
         <View style={styles.square}>
           <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen1.name}</Text>
             <View style={styles.popupContainer}>
               <ImgPopup src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJGrby2IngYbvnblxD_d78O-TFa7Q71Ei1owPAJ_dHhtkBeNtbga6VAtNaQoK8O5b0zfY&usqp=CAU" />
             </View>
-
           </View>
-
-
 
           {scen1.performances.map((performance) => (
             <View style={styles.textArtist}>
@@ -230,16 +203,13 @@ export default function Scene() {
             </View>
           ))}
 
-
         </View>
-        {/* Robert start */}
         <View style={styles.square}>
           <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen2.name}</Text>
             <View style={styles.popupContainer}>
               <ImgPopup src="https://media.tenor.com/zrpyKEyxZGwAAAAC/fat-cat-laser-eyes.gif" />
             </View>
-
           </View>
 
           {scen2.performances.map((performance) => (
@@ -248,16 +218,14 @@ export default function Scene() {
                 <Text style={{ marginRight: 10 }}>{performance.artist} - {performance.time}</Text>
                 <TouchableOpacity onPress={() => addFavorite(performance.artist, performance.time)}>
                   {favorites.some((favorite) => favorite.artist === performance.artist) ?
-                     <AntDesign name="star" size={16} color="black" /> :
-                     <AntDesign name="staro" size={16} color="black" />
+                    <AntDesign name="star" size={16} color="black" /> :
+                    <AntDesign name="staro" size={16} color="black" />
                   }
                 </TouchableOpacity>
               </View>
             </View>
           ))}
-
         </View>
-        {/* Robert slut */}
 
         <View style={styles.square}>
           <View style={styles.sceneAndPopup}>
@@ -267,7 +235,6 @@ export default function Scene() {
             </View>
 
           </View>
-
           {scen3.performances.map((performance) => (
             <View style={styles.textArtist}>
               <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>

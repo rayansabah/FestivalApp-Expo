@@ -1,10 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
+import { View, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import LogoSvg from '../assets/svgComp/LogoHead.js'
 
 const { width, height } = Dimensions.get('window');
+
+//Component for the navigationbar
+//contains a logo and a back-button
 
 const CustomHeader = ({ title }) => {
     const navigation = useNavigation();

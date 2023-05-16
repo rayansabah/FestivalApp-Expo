@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { View, Image, TouchableOpacity, Modal, StyleSheet, Text } from 'react-native';
 import { Ionicons, AntDesign } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';
+
+//Componenet for the favorite section popup
+
 
 function TextPopup({ src }) {
     const [showPopup, setShowPopup] = useState(false);
@@ -26,7 +28,7 @@ function TextPopup({ src }) {
                 animationType="slide"
                 visible={showPopup}
                 onRequestClose={handlePopupClose}
-                
+
             >
                 <View style={styles.popupBackground}>
                     <TouchableOpacity

@@ -1,9 +1,8 @@
-
 import SponsorData from '../jsonTemp/sponsorsInfo.json'
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity, Linking, Dimensions } from 'react-native';
-
 import CustomHeader from '../component/CustomHeader';
 
+//Here we have all the sponsors
 
 function Sponsor() {
 
@@ -91,8 +90,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontFamily: 'MontserratBold',
     paddingVertical: 5,
-
-
   },
   sponsorContainer: {
     justifyContent: 'center',
@@ -103,22 +100,22 @@ const styles = StyleSheet.create({
     aspectRatio: 1,
     borderRadius: 10,
     justifyContent: 'center',
-    borderBottomWidth: 5, 
-    borderBottomColor: 'black', 
-    borderBottomLeftRadius: 15, 
-    borderBottomRightRadius: 15, 
-    shadowColor: 'black', 
-    shadowOffset: { width: 0, height: 2 }, 
-    shadowOpacity: 0.4, 
-    shadowRadius: 4, 
+    borderBottomWidth: 5,
+    borderBottomColor: 'black',
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
     elevation: 5,
     paddingBottom: 10,
     paddingTop: 10
-
   },
   sponsorImage: {
     flex: 1,
     borderRadius: 10,
   },
 });
+
 export default Sponsor;

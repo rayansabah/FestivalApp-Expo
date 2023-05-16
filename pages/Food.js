@@ -1,19 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native';
-
 import CustomHeader from '../component/CustomHeader';
 import VeganIcon from '../component/VeganIcon';
 import MeatIcon from '../component/MeatIcon'
 import FishIcon from '../component/FishIcon'
-
 import food from '../jsonTemp/food.json';
-
 import { useFonts } from 'expo-font';
+
+//This page displays all foodtrucks and what type of food they have
+
 
 const Food = () => {
   let [fontsLoaded] = useFonts({
     'MontserratBold': require('../assets/font/Montserrat-SemiBold.ttf')
-})
+  })
   return (<>
     <View>
       <CustomHeader title="Home" />
@@ -46,7 +46,7 @@ const Food = () => {
               {menu.menu.map((item, index) => (
                 <View style={styles.textFood}>
                   <View style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }} >
-                    <Text style={{fontFamily: 'MontserratBold'}} key={index}>
+                    <Text style={{ fontFamily: 'MontserratBold' }} key={index}>
                       {item.food}
                     </Text>
 
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginHorizontal: 5,
     padding: 5,
-   
+
   },
   foodContainer: {
     flexDirection: 'row',

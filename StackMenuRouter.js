@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, StyleSheet, Linking } from 'react-native';
@@ -7,15 +8,13 @@ import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import WeatherPopup from './component/WeatherPopup';
-
-
-
-import Contact from './pages/Contact';
 import Sponsor from './pages/Sponsor';
 import Scene from './pages/Scene';
 import Food from './pages/Food';
 import Location from './pages/Location';
 import SvgComponent from "./assets/svgComp/LogoSvg.js";
+
+//Component responsible for the menu function and the appearance.
 
 
 const Stack = createStackNavigator();
@@ -51,9 +50,6 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity onPress={() => navigation.navigate('Sponsor')}>
           <Text style={styles.link}>Sponsorer</Text>
         </TouchableOpacity>
-        {/* <TouchableOpacity onPress={() => navigation.navigate('Contact')}>
-          <Text style={[styles.link, { fontFamily: 'MontserratBold', paddingVertical: 10 }]}>Kontakta oss</Text>
-        </TouchableOpacity> */}
         <TouchableOpacity onPress={() => Linking.openURL('mailto:Festival@Herrljunga.se')}>
           <Text style={styles.link}>Kontakta oss</Text>
         </TouchableOpacity>
@@ -75,7 +71,6 @@ const HomeScreen = ({ navigation }) => {
         </View>
 
       </View>
-
 
     </View>
   );

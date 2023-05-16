@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking, Animated } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Linking } from 'react-native'
 import React, { useState } from 'react';
 import MapView, { Polygon } from 'react-native-maps';
 import CustomHeader from '../component/CustomHeader';
@@ -7,6 +7,8 @@ import { FontAwesome } from '@expo/vector-icons';
 import { useFonts } from 'expo-font';
 import OpenLinkBtn from '../component/OpenLinkBtn';
 
+//This page displays a map over the festival area.
+//Below the map is a small section with some information about the areas
 
 export default function Location() {
     let [fontsLoaded] = useFonts({
@@ -45,7 +47,6 @@ export default function Location() {
             padding: 9,
             borderRadius: 10,
             backgroundColor: '#ffffff',
-
             width: 340,
         },
         header: {
@@ -56,8 +57,6 @@ export default function Location() {
             position: 'relative',
             top: 15,
             fontFamily: 'MontserratBold',
-
-
         },
         map: {
             width: '100%',
@@ -72,7 +71,6 @@ export default function Location() {
             width: 250,
             borderWidth: 2,
             borderColor: 'white',
-
             flex: 1,
             textAlign: 'center',
             textAlignVertical: 'center',
@@ -84,11 +82,10 @@ export default function Location() {
             paddingVertical: 5,
         },
         buttonContainer: {
-            marginTop: 10, // Adjust the value to control the space between the text and the button
+            marginTop: 10,
             alignItems: 'center',
             borderColor: "black"
         }
-
     });
 
     const coordinate = {
@@ -124,14 +121,9 @@ export default function Location() {
     const polygonStoraScenen = [
         { latitude: 58.07741144116911, longitude: 13.026294035429995 },
         { latitude: 58.077290093067, longitude: 13.026320587942571 },
-        { latitude: 58.077370824701525, longitude: 13.027091559111238},
+        { latitude: 58.077370824701525, longitude: 13.027091559111238 },
         { latitude: 58.077449550405284, longitude: 13.02702422952578 },
-
     ];
-
-
-
-
 
     return (<>
         <View>
@@ -143,7 +135,6 @@ export default function Location() {
                 <View style={styles.locationSquare}>
                     <Text style={styles.header}>Områden</Text>
                     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-
                         <Text style={{ textAlign: 'center' }}>Här hittar du en karta över alla scener som finns på festivalen, samt information om respektive scen</Text>
                     </View>
                 </View>
@@ -155,7 +146,6 @@ export default function Location() {
                         latitudeDelta: 0.005,
                         longitudeDelta: 0.005,
                     }} legalLabelInsets={{ bottom: 'never', right: 'never' }}>
-
                         <Polygon
                             coordinates={polygonTorget}
                             fillColor={'rgb(102, 255, 102)'}
@@ -180,10 +170,8 @@ export default function Location() {
                             strokeColor={'rgb(253, 53, 250)'}
                             strokeWidth={5}
                         />
-
                     </MapView>
                 </View>
-
 
                 <View style={styles.locationSquare}>
                     {data.LocationInfo.map((location, index) => (

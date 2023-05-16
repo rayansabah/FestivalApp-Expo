@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import CustomHeader from '../component/CustomHeader';
 
+//
+
 const Contact = () => {
   return (<>
     <View>
@@ -11,7 +13,6 @@ const Contact = () => {
       <View style={styles.container}>
         <View style={styles.square}>
           <Text style={styles.header}>Kontakta oss</Text>
-
           <Text>Enter your contact information here.</Text>
         </View>
       </View>

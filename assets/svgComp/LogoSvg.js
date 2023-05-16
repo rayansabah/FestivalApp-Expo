@@ -1,6 +1,7 @@
 import React from "react";
-import { SvgXml } from "react-native-svg";  
-export default function SvgComponent(){  
+
+import { SvgXml } from "react-native-svg";
+export default function SvgComponent() {
   const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" id="Lager_2" viewBox="0 0 536.29 118.96">
   <path fill="white" d="m48.38.9v52.75h-12.21v-21.02H12.21v21.02H0V.9h12.21v21.93h23.96V.9h12.21Z"/>
   <path fill="white" d="m142.27,53.65l-10.17-14.69h-11.23v14.69h-12.21V.9h22.83c14.09,0,22.91,7.31,22.91,19.14,0,7.91-3.99,13.71-10.85,16.65l11.83,16.95h-13.11Zm-11.45-42.8h-9.95v18.39h9.95c7.46,0,11.23-3.47,11.23-9.19s-3.77-9.19-11.23-9.19Z"/>
@@ -28,7 +29,7 @@ export default function SvgComponent(){
   <rect fill="white" x="58.1" y=".9" width="40.84" height="9.8"/>
 </svg>
   `;
-  const SvgImage = () => <SvgXml xml={svgMarkup} width="50%" height="30%" />;  
+  const SvgImage = () => <SvgXml xml={svgMarkup} width="50%" height="30%" />;
 
   return <SvgImage />;
 }

@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { View, TouchableWithoutFeedback ,Linking , StyleSheet, Text } from 'react-native';
+import { View, TouchableWithoutFeedback, Linking, StyleSheet, Text } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import axios from 'axios';
+
+//Component for the weather function
+//fetches data from a weather API
+//And also if the waether icon is clicked, it redirects you to the SMHI homepage
 
 const API_KEY = '60da068eca94149c33c2176879e11790';
 const CITY_NAME = 'Herrljunga';
@@ -30,16 +34,16 @@ const WeatherPopup = () => {
 
   return (
     <View >
-          <TouchableWithoutFeedback onPress={handlePress}>
-      <View style={styles.container}>
-        <FontAwesome5
-          name={weatherCondition === 'bright-cloud' ? 'cloud-sun' : 'cloud'}
-          size={24}
-          color="white"
-        />
-        <Text style={styles.temperature}>{temperature} °C</Text>
-      </View>
-    </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={handlePress}>
+        <View style={styles.container}>
+          <FontAwesome5
+            name={weatherCondition === 'bright-cloud' ? 'cloud-sun' : 'cloud'}
+            size={24}
+            color="white"
+          />
+          <Text style={styles.temperature}>{temperature} °C</Text>
+        </View>
+      </TouchableWithoutFeedback>
     </View>
   );
 };

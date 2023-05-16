@@ -1,4 +1,5 @@
 import React from "react";
+
 import { SvgXml } from "react-native-svg";
 export default function SvgComponent() {
   const svgMarkup = `<svg xmlns="http://www.w3.org/2000/svg" id="Lager_2" viewBox="0 0 536.29 118.96">
