@@ -10,6 +10,7 @@
     "Scenes": [
         {
             "name": "Torget",
+            "image": "https://media.fosiedal.se/2011/03/bild-kommer-snart.png",
             "performances": [
                 {
                     "artist": "Ström",
@@ -27,6 +28,7 @@
         },
         {
             "name": "Stadsparken",
+            "image": "https://media.fosiedal.se/2011/03/bild-kommer-snart.png",
             "performances": [
                 {
                     "artist": "Kommer snart",
@@ -44,6 +46,7 @@
         },
         {
             "name": "Stora Scenen",
+            "image": "https://media.fosiedal.se/2011/03/bild-kommer-snart.png",
             "performances": [
                 {
                     "artist": "Daniel Adams-Ray",

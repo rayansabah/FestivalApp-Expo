@@ -135,6 +135,7 @@ export default function Scene() {
   }, []);
 
   /// Favorit funktion slut
+  /// För närvarande är popimage (ImgPopup) kommenterat bort eftersom det för tillfället inte finns några bilder tillgängliga.
 
   return (<>
     <View>
@@ -185,7 +186,7 @@ export default function Scene() {
           <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen1.name}</Text>
             <View style={styles.popupContainer}>
-              <ImgPopup src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJGrby2IngYbvnblxD_d78O-TFa7Q71Ei1owPAJ_dHhtkBeNtbga6VAtNaQoK8O5b0zfY&usqp=CAU" />
+              {/* <ImgPopup src={scen1.image} /> */}
             </View>
           </View>
 
@@ -208,7 +209,7 @@ export default function Scene() {
           <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen2.name}</Text>
             <View style={styles.popupContainer}>
-              <ImgPopup src="https://media.tenor.com/zrpyKEyxZGwAAAAC/fat-cat-laser-eyes.gif" />
+              {/* <ImgPopup src={scen2.image} /> */}
             </View>
           </View>
 
@@ -231,7 +232,7 @@ export default function Scene() {
           <View style={styles.sceneAndPopup}>
             <Text style={styles.sceneHeader}>{scen3.name}</Text>
             <View style={styles.popupContainer}>
-              <ImgPopup src="https://media2.giphy.com/media/aYZIeUDU3qvPa/giphy.gif?cid=6c09b952rh6g343ssn5uzqaxr3k2wq7rra49be6g71rkwsql&rid=giphy.gif&ct=g" />
+              {/* <ImgPopup src={scen3.image} /> */}
             </View>
 
           </View>
