@@ -116,20 +116,6 @@ const SponsorScreen = () => {
   );
 };
 
-const ConatctScreen = () => {
-  return (
-    <LinearGradient
-      colors={['#a28877', '#e9424f']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-      style={styles.container}
-    >
-      <View style={styles.container}>
-        <Contact />
-      </View>
-    </LinearGradient>
-  );
-};
 
 const StackMenuRouter = () => {
   return (
@@ -143,7 +129,6 @@ const StackMenuRouter = () => {
         <Stack.Screen name="Location" component={LocationScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Food" component={FoodScreen} options={{ headerShown: false }} />
         <Stack.Screen name="Sponsor" component={SponsorScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Contact" component={ConatctScreen} options={{ headerShown: false }} />
 
 
       </Stack.Navigator>
