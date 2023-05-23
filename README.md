@@ -82,7 +82,7 @@ you can only Have 'true' or 'false' in 'vegan', 'meat' and 'fish'
 'true' = show the icon 
 'False' = not showing the icon 
 
-## Fourth page
+## Fourth page (Sponsors) 
 this page you will find proudly displayed logos of our valuable sponsors who support the festival, along with their links.
 
 To change the content or add new data, it is modified in the JSON file. 
@@ -100,7 +100,7 @@ The 'BigSponsors' and 'Sponsors' code
  }
 ```
 
-I use data:image type of pickture but it works with url to 
+I use the data:image type for pictures, but it also works with URLs
 
 ## Change the menu
 To add a new section to menu, follow this steps:
