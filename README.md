@@ -82,7 +82,7 @@ you can only Have 'true' or 'false' in 'vegan', 'meat' and 'fish'
 'true' = show the icon 
 'False' = not showing the icon 
 
-## Fourth page
+## Fourth page (Sponsors) 
 this page you will find proudly displayed logos of our valuable sponsors who support the festival, along with their links.
 
 To change the content or add new data, it is modified in the JSON file. 
