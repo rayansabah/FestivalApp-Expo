@@ -112,17 +112,17 @@ export default function Location() {
     ];
     const polygonTradgardsgatan = [
         { latitude: 58.077231889602785, longitude: 13.026115929829064 },
-        { latitude: 58.07726895093108, longitude: 13.02479558221703 },
         { latitude: 58.07737953920083, longitude: 13.022212079135539 },
+        { latitude: 58.07726895093108, longitude: 13.02479558221703 },
         { latitude: 58.077356901831855, longitude: 13.022208258300067 },
         { latitude: 58.07725051321702, longitude: 13.0247935705603 },
         { latitude: 58.07721018846615, longitude: 13.02611283622232 },
     ];
     const polygonStoraScenen = [
-        { latitude: 58.07741144116911, longitude: 13.026294035429995 },
-        { latitude: 58.077290093067, longitude: 13.026320587942571 },
-        { latitude: 58.077370824701525, longitude: 13.027091559111238 },
-        { latitude: 58.077449550405284, longitude: 13.02702422952578 },
+        { latitude: 58.07577514727354, longitude: 13.01798857410787 },
+        { latitude: 58.075538314015105, longitude: 13.018369109212538 },
+        { latitude: 58.07569396074678, longitude: 13.018862840353997 },
+        { latitude: 58.075949110078376, longitude: 13.018339932698884 },
     ];
 
     return (<>
