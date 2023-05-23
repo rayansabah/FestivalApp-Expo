@@ -100,7 +100,7 @@ The 'BigSponsors' and 'Sponsors' code
  }
 ```
 
-I use data:image type of pickture but it works with url to 
+I use the data:image type for pictures, but it also works with URLs
 
 ## Change the menu
 To add a new section to menu, follow this steps:
