@@ -1,19 +1,18 @@
 {
   "expo": {
     "name": "FestivalApp",
-    "slug": "FestivalApp",
+    "slug": "festivalapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#",
-      "resizeMode": "cover"
+      "resizeMode": "cover",
+      "backgroundColor": "#"
     },
     "assetBundlePatterns": [
-      "**/*"
+      "assets/font/*"
     ],
     "ios": {
       "supportsTablet": true
@@ -22,13 +21,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#00000"
-      }
+      },
+      "package": "com.herrljungait.festivalapp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "assetBundlePatterns": [
-      "assets/font/*"
-    ]
+    "extra": {
+      "eas": {
+        "projectId": "72613d5e-7485-4016-97f0-9c25f20dce41"
+      }
+    },
+    "owner": "herrljungait"
   }
 }
